@@ -1,0 +1,46 @@
+# Author: kuehbajo
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”),
+# to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+# OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+# OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[alias]
+ba = ["build", "--target", "thumbv7em-none-eabihf"]
+
+[target.thumbv7em-none-eabihf]
+linker = "arm-none-eabi-gcc"
+runner = "arm-none-eabi-gdb -x openocd.gdb"
+
+rustflags = [
+    # Usual Arm bare-metal linker setup
+    "-Clink-arg=-marm",
+    "-Clink-arg=-mcpu=cortex-m4",
+    "-Clink-arg=-mthumb",
+    "-Clink-arg=-D__FPU_PRESENT",
+    "-Clink-arg=-mfpu=fpv4-sp-d16",
+    "-Clink-arg=-mfloat-abi=hard",
+    "-Clink-arg=--specs=nosys.specs",
+    "-Clink-arg=--specs=nano.specs",
+    "-Clink-arg=-Os",
+    "-Clink-arg=-T../common/linker_script.ld",
+    "-Clink-arg=-L../common/build/O0",
+    "-Clink-arg=-lc",
+    "-Clink-arg=-lm",
+    "-Clink-arg=-lnosys",
+    "-Clink-arg=-lxmc-startup",
+    "-Clink-arg=-Wl,-Map=./target/thumbv7em-none-eabihf/xmc-flash.map,--cref",
+    "-Clink-arg=-Wl,--gc-sections",
+    # tell Rust we have a Cortex-M4
+    "-Ctarget-cpu=cortex-m4",
+    #"-Ctarget-feature=",
+    #"-o=target.elf"
+]
+
+# runner = 'probe-rs run --chip-description-path ../common/XMC4000.yaml --chip XMC4500-F100x1024'

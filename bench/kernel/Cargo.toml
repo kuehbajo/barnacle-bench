@@ -1,0 +1,137 @@
+# Author: kuehbajo
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”),
+# to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+# OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+# OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[package]
+name = "tacle-kernel-rs"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+log = ["cortex-m/critical-section-single-core"]
+
+[dependencies]
+libm = "0.2.11"
+
+[target.thumbv7em-none-eabihf.dependencies]
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.5"
+rtt-target = "0.6.1"
+panic-halt = "1.0.0"
+panic-rtt-target = "0.2.0"
+
+#
+# --- kernel ---
+# 
+[[bin]]
+name = "binarysearch"
+path = "src/binarysearch/binarysearch.rs"
+[[bin]]
+name = "bitcount"
+path = "src/bitcount/bitcount.rs"
+[[bin]]
+name = "bitonic"
+path = "src/bitonic/bitonic.rs"
+[[bin]]
+name = "bsort"
+path = "src/bsort/bsort.rs"
+[[bin]]
+name = "complex_updates"
+path = "src/complex_updates/complex_updates.rs"
+[[bin]]
+name = "cosf_custom"
+path = "src/cosf_custom/cosf_custom.rs"
+[[bin]]
+name = "cosf_libm"
+path = "src/cosf_libm/cosf_libm.rs"
+[[bin]]
+name = "countnegative"
+path = "src/countnegative/countnegative.rs"
+[[bin]]
+name = "cubic_custom"
+path = "src/cubic_custom/cubic_custom.rs"
+[[bin]]
+name = "cubic_libm"
+path = "src/cubic_libm/cubic_libm.rs"
+[[bin]]
+name = "deg2rad"
+path = "src/deg2rad/deg2rad.rs"
+[[bin]]
+name = "fac"
+path = "src/fac/fac.rs"
+[[bin]]
+name = "fft"
+path = "src/fft/fft.rs"
+[[bin]]
+name = "filterbank"
+path = "src/filterbank/filterbank.rs"
+[[bin]]
+name = "fir2dim"
+path = "src/fir2dim/fir2dim.rs"
+[[bin]]
+name = "iir"
+path = "src/iir/iir.rs"
+[[bin]]
+name = "insertsort"
+path = "src/insertsort/insertsort.rs"
+[[bin]]
+name = "isqrt"
+path = "src/isqrt/isqrt.rs"
+[[bin]]
+name = "jfdctint"
+path = "src/jfdctint/jfdctint.rs"
+[[bin]]
+name = "lms"
+path = "src/lms/lms.rs"
+[[bin]]
+name = "ludcmp"
+path = "src/ludcmp/ludcmp.rs"
+[[bin]]
+name = "matrix1"
+path = "src/matrix1/matrix1.rs"
+[[bin]]
+name = "md5"
+path = "src/md5/md5.rs"
+[[bin]]
+name = "minver"
+path = "src/minver/minver.rs"
+[[bin]]
+name = "pm_custom"
+path = "src/pm_custom/pm_custom.rs"
+[[bin]]
+name = "pm_libm"
+path = "src/pm_libm/pm_libm.rs"
+[[bin]]
+name = "prime"
+path = "src/prime/prime.rs"
+[[bin]]
+name = "quicksort_custom"
+path = "src/quicksort_custom/quicksort_custom.rs"
+[[bin]]
+name = "quicksort_libm"
+path = "src/quicksort_libm/quicksort_libm.rs"
+[[bin]]
+name = "rad2deg"
+path = "src/rad2deg/rad2deg.rs"
+[[bin]]
+name = "recursion"
+path = "src/recursion/recursion.rs"
+[[bin]]
+name = "sha"
+path = "src/sha/sha.rs"
+[[bin]]
+name = "st_custom"
+path = "src/st_custom/st_custom.rs"
+[[bin]]
+name = "st_libm"
+path = "src/st_libm/st_libm.rs"
+
