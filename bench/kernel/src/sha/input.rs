@@ -3,7 +3,7 @@
   Rust Implementation
 
   Author: David Heim
-  License: The Rust implementation shares the same license (GNU Lesser General Public License) as its origin.
+  License: The Rust implementation shares the same license as its origin.
 
   THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES

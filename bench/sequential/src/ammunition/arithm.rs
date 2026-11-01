@@ -3,7 +3,7 @@
   Rust Implementation
 
   Author: kuehbajo
-  License: The Rust implementation shares the same license as the original main file.
+  License: The Rust implementation shares the same license (GPL 2) as the original main file.
 
   ------------------------------------------------------
 

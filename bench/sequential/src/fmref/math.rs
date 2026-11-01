@@ -18,7 +18,7 @@
   The corresponding C version is part of the TACLeBench benchmark suite
   containing the following source and license information.
 
-  Name: .c
+  Name: wcclibm.c
 
   Author: Ian Lance Taylor
 
