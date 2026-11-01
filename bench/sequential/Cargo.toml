@@ -1,0 +1,107 @@
+# Author: kuehbajo
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”),
+# to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+# OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+# OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[package]
+name = "tacle-sequential-rs"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+log = ["cortex-m/critical-section-single-core"]
+
+[dependencies]
+libm = "0.2.11"
+
+[target.thumbv7em-none-eabihf.dependencies]
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.5"
+rtt-target = "0.6.1"
+panic-halt = "1.0.0"
+panic-rtt-target = "0.2.0"
+
+#
+# --- sequential ---
+# 
+[[bin]]
+name = "adpcm_dec"
+path = "src/adpcm_dec/adpcm_dec.rs"
+[[bin]]
+name = "adpcm_enc"
+path = "src/adpcm_enc/adpcm_enc.rs"
+[[bin]]
+name = "ammunition"
+path = "src/ammunition/ammunition.rs"
+[[bin]]
+name = "anagram"
+path = "src/anagram/anagram.rs"
+[[bin]]
+name = "audiobeam"
+path = "src/audiobeam/audiobeam.rs"
+[[bin]]
+name = "cjpeg_transupp"
+path = "src/cjpeg_transupp/cjpeg_transupp.rs"
+[[bin]]
+name = "cjpeg_wrbmp"
+path = "src/cjpeg_wrbmp/cjpeg_wrbmp.rs"
+[[bin]]
+name = "dijkstra"
+path = "src/dijkstra/dijkstra.rs"
+[[bin]]
+name = "epic"
+path = "src/epic/epic.rs"
+[[bin]]
+name = "fmref"
+path = "src/fmref/fmref.rs"
+[[bin]]
+name = "fmref_v2"
+path = "src/fmref_v2/fmref.rs"
+[[bin]]
+name = "g723_enc"
+path = "src/g723_enc/g723_enc.rs"
+[[bin]]
+name = "gsm_dec"
+path = "src/gsm_dec/gsm_dec.rs"
+[[bin]]
+name = "gsm_enc"
+path = "src/gsm_enc/gsm_enc.rs"
+[[bin]]
+name = "h264_dec"
+path = "src/h264_dec/h264_dec.rs"
+[[bin]]
+name = "huff_dec"
+path = "src/huff_dec/huff_dec.rs"
+[[bin]]
+name = "huff_enc"
+path = "src/huff_enc/huff_enc.rs"
+[[bin]]
+name = "mpeg2"
+path = "src/mpeg2/mpeg2.rs"
+[[bin]]
+name = "ndes"
+path = "src/ndes/ndes.rs"
+[[bin]]
+name = "petrinet"
+path = "src/petrinet/petrinet.rs"
+[[bin]]
+name = "rijndael_dec"
+path = "src/rijndael_dec/rijndael_dec.rs"
+[[bin]]
+name = "rijndael_enc"
+path = "src/rijndael_enc/rijndael_enc.rs"
+[[bin]]
+name = "statemate"
+path = "src/statemate/statemate.rs"
+[[bin]]
+name = "susan"
+path = "src/susan/susan.rs"
+
