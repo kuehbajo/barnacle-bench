@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+# outer loop: seems to be completely unrolled
+
+loop "md5_main.L1" { bound: 0 .. 256; }

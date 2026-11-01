@@ -1,0 +1,71 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "epic::epic_reflect1.L1" { bound: 0 .. 15; }
+
+# reflect1
+loop "epic::epic_internal_filter.L1" { bound: 0 .. 15; }
+# center
+loop "epic::epic_internal_filter.L2" { bound: 0 .. 97; }
+loop "epic::epic_internal_filter.L3" { bound: 0 .. 46; }
+# convolution
+loop "epic::epic_internal_filter.L4" { bound: 0 .. 15; }
+# top
+loop "epic::epic_internal_filter.L6" { bound: 0 .. 4; }
+loop "epic::epic_internal_filter.L7" { bound: 0 .. 4; }
+# reflect1
+loop "epic::epic_internal_filter.L8" { bound: 0 .. 15; }
+# convolution
+loop "epic::epic_internal_filter.L10" { bound: 0 .. 15; }
+# reflect1
+loop "epic::epic_internal_filter.L12" { bound: 0 .. 15; }
+
+loop "epic::epic_internal_filter.L14" { bound: 0 .. 46; }
+# convolution
+loop "epic::epic_internal_filter.L15" { bound: 0 .. 15; }
+
+loop "epic::epic_internal_filter.L17" { bound: 0 .. 4; }
+# reflect
+loop "epic::epic_internal_filter.L18" { bound: 0 .. 15; }
+# convolution
+loop "epic::epic_internal_filter.L20" { bound: 0 .. 15; }
+# left edge
+loop "epic::epic_internal_filter.L22" { bound: 0 .. 4; }
+# reflect1
+loop "epic::epic_internal_filter.L23" { bound: 0 .. 15; }
+
+loop "epic::epic_internal_filter.L25" { bound: 0 .. 97; }
+# convolution
+loop "epic::epic_internal_filter.L26" { bound: 0 .. 15; }
+
+loop "epic::epic_internal_filter.L28" { bound: 0 .. 0; }
+# right edge
+loop "epic::epic_internal_filter.L29" { bound: 0 .. 4; }
+# reflect1
+loop "epic::epic_internal_filter.L30" { bound: 0 .. 15; }
+
+loop "epic::epic_internal_filter.L32" { bound: 0 .. 97; }
+loop "epic::epic_internal_filter.L33" { bound: 0 .. 15; }
+# bottom
+loop "epic::epic_internal_filter.L35" { bound: 0 .. 4; }
+loop "epic::epic_internal_filter.L36" { bound: 0 .. 4; }
+# convolution
+loop "epic::epic_internal_filter.L37" { bound: 0 .. 15; }
+# reflect1
+loop "epic::epic_internal_filter.L39" { bound: 0 .. 15; }
+
+loop "epic::epic_internal_filter.L41" { bound: 0 .. 46; }
+# convolution
+loop "epic::epic_internal_filter.L42" { bound: 0 .. 15; }
+
+loop "epic::epic_internal_filter.L44" { bound: 0 .. 4; }
+# convolution
+loop "epic::epic_internal_filter.L45" { bound: 0 .. 15; }
+
+loop "epic::epic_main.L1" { bound: 0 .. 4; }
+loop "epic::epic_main.L2" { bound: 0 .. 599; }
+loop "epic::epic_main.L3" { bound: 0 .. 2; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+# L1 and L3 both annotated with 99
+# -> using 99 would incur very high estimation
+# use 1, as WCET similar to O1
+loop "bsort_main.L2" { bound: 0 .. 1; }

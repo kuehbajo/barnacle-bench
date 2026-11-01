@@ -1,0 +1,14 @@
+compiler: "arm-clang";
+
+# loop
+loop "bitcount::bitcount_main.L1" { bound: 8 .. 8; }
+loop "bitcount::bitcount_main.L2" { bound: 10 .. 10; }
+
+loop "bitcount::bitcnt_1::bitcount_bit_count.L1" { bound: 3 .. 8; }
+
+# recursion
+routine "bitcount::bitcnt_4::bitcount_btbl_bitcnt" { recursion bound: 1 .. 4; }
+routine "bitcount::bitcnt_4::bitcount_ntbl_bitcnt" { recursion bound: 1 .. 8; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,22 @@
+compiler: "arm-clang";
+
+loop "huff_dec::huff_dec_read_header.L1" { bound: 257 .. 257; }
+loop "huff_dec::huff_dec_read_header.L2" { bound: 1 .. 32; }
+loop "huff_dec::huff_dec_read_header.L3" { bound: 256 .. 256; }
+loop "huff_dec::huff_dec_read_header.L4" { bound: 257 .. 257; }
+loop "huff_dec::huff_dec_read_header.L5" { bound: 0 .. 1; }
+loop "huff_dec::huff_dec_read_header.L6" { bound: 32 .. 32; }
+
+loop "huff_dec::huff_dec_tree_encoding.L1" { bound: 257 .. 257; }
+loop "huff_dec::huff_dec_tree_encoding.L2" { bound: 0 .. 9; }
+
+loop "huff_dec::huff_dec_read_code_n_bits.L1" { bound: 1 .. 1; }
+loop "huff_dec::huff_dec_read_code_n_bits.L2" { bound: 0 .. 2; }
+
+loop "huff_dec::huff_dec_main.L1" { bound: 601 .. 601; }
+loop "huff_dec::huff_dec_main.L2" { bound: 3 .. 9; }
+
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

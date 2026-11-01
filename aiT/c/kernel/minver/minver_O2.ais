@@ -1,0 +1,15 @@
+compiler: "arm-clang";
+
+# suspect loop peeling + unrolling 2x times
+
+loop "minver_minver.L9" { bound: 0 .. 1; }
+loop "minver_minver.L11" { bound: 0 .. 1; }
+loop "minver_minver.L13" { bound: 0 .. 1; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8002be4.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8002be4.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8002dca.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8002dca.L2" { bound: 0 .. inf; }

@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+routine "lms::lms_main" { irreducible bound: 0 .. 201; }

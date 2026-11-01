@@ -1,0 +1,33 @@
+compiler: "arm-clang";
+
+loop "minver::minver_mmul.L1" { bound: 3 .. 3; }
+loop "minver::minver_mmul.L2" { bound: 3 .. 3; }
+loop "minver::minver_mmul.L3" { bound: 3 .. 3; }
+
+loop "minver::minver_minver.L1" { bound: 3 .. 3; }
+loop "minver::minver_minver.L2" { bound: 3 .. 3; }
+loop "minver::minver_minver.L3" { bound: 3 .. 3; }
+loop "minver::minver_minver.L4" { bound: 1 .. 3; }
+loop "minver::minver_minver.L5" { bound: 1 .. 3; }
+loop "minver::minver_minver.L6" { bound: 3 .. 3; }
+loop "minver::minver_minver.L7" { bound: 3 .. 3; }
+loop "minver::minver_minver.L8" { bound: 3 .. 3; }
+
+loop "compiler_builtins::arm::__aeabi_memcpy8::__aeabi_memcpy8.L1" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memmove.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L4" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L5" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L6" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L7" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L8" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

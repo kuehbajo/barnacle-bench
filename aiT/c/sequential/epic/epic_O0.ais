@@ -1,0 +1,53 @@
+compiler: "arm-clang";
+
+# a lot of min bound contradictions -> min 0
+# aiT warning "all outgoing edges infeasible"
+
+loop "epic_build_pyr.L1" { bound: 0 .. 4; }
+
+# 1
+loop "epic_internal_filter.L1" { bound: 0 .. 4; }
+loop "epic_internal_filter.L2" { bound: 0 .. 4; }
+loop "epic_internal_filter.L3" { bound: 0 .. 15; }
+loop "epic_internal_filter.L4" { bound: 0 .. 15; }
+loop "epic_internal_filter.L5" { bound: 0 .. 46; }
+loop "epic_internal_filter.L6" { bound: 0 .. 15; }
+loop "epic_internal_filter.L7" { bound: 0 .. 15; }
+loop "epic_internal_filter.L8" { bound: 0 .. 4; }
+loop "epic_internal_filter.L9" { bound: 0 .. 15; }
+loop "epic_internal_filter.L10" { bound: 0 .. 15; }
+# 2
+loop "epic_internal_filter.L11" { bound: 0 .. 4; }
+loop "epic_internal_filter.L12" { bound: 0 .. 97; }
+loop "epic_internal_filter.L13" { bound: 0 .. 15; }
+loop "epic_internal_filter.L14" { bound: 0 .. 15; }
+# 3
+loop "epic_internal_filter.L15" { bound: 0 .. 97; }
+loop "epic_internal_filter.L16" { bound: 0 .. 46; }
+loop "epic_internal_filter.L17" { bound: 0 .. 15; }
+loop "epic_internal_filter.L18" { bound: 0 .. 15; }
+# 4
+loop "epic_internal_filter.L19" { bound: 0 .. 4; }
+loop "epic_internal_filter.L20" { bound: 0 .. 97; }
+loop "epic_internal_filter.L21" { bound: 0 .. 15; }
+loop "epic_internal_filter.L22" { bound: 0 .. 15; }
+# 5
+loop "epic_internal_filter.L23" { bound: 0 .. 4; }
+loop "epic_internal_filter.L24" { bound: 0 .. 4; }
+loop "epic_internal_filter.L25" { bound: 0 .. 15; }
+loop "epic_internal_filter.L26" { bound: 0 .. 15; }
+loop "epic_internal_filter.L27" { bound: 0 .. 46; }
+loop "epic_internal_filter.L28" { bound: 0 .. 15; }
+loop "epic_internal_filter.L29" { bound: 0 .. 15; }
+loop "epic_internal_filter.L30" { bound: 0 .. 4; }
+loop "epic_internal_filter.L31" { bound: 0 .. 15; }
+loop "epic_internal_filter.L32" { bound: 0 .. 15; }
+
+loop "epic_internal_transpose.L1" { bound: 0 .. 2399; }
+loop "epic_internal_transpose.L2" { bound: 0 .. 2; }
+
+loop "epic_reflect1.L1" { bound: 0 .. 15; }
+loop "epic_reflect1.L2" { bound: 0 .. 15; }
+loop "epic_reflect1.L3" { bound: 0 .. 15; }
+loop "epic_reflect1.L4" { bound: 0 .. 0; }
+loop "epic_reflect1.L5" { bound: 0 .. 0; }

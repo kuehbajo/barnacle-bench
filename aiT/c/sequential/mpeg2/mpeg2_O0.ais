@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "mpeg2_motion_estimation.L1" { bound: 8 .. 8; }
+loop "mpeg2_motion_estimation.L2" { bound: 11 .. 11; }
+
+loop "mpeg2_fullsearch.L1" { bound: 3 .. 7; }
+loop "mpeg2_fullsearch.L2" { bound: 8 .. 56; }
+loop "mpeg2_fullsearch.L3" { bound: 2 .. 3; }
+loop "mpeg2_fullsearch.L4" { bound: 2 .. 3; }

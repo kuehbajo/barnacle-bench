@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+loop "ludcmp::ludcmp_main.L1" { bound: 0 .. 5; }
+loop "ludcmp::ludcmp_main.L2" { bound: 0 .. 5; }
+loop "ludcmp::ludcmp_main.L3" { bound: 0 .. 5; }
+loop "ludcmp::ludcmp_main.L4" { bound: 0 .. 5; }
+loop "ludcmp::ludcmp_main.L5" { bound: 0 .. 5; }
+loop "ludcmp::ludcmp_main.L6" { bound: 0 .. 5; }

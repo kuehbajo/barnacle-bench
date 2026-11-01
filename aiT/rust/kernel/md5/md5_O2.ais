@@ -1,0 +1,14 @@
+compiler: "arm-clang";
+
+loop "md5::Random::init.L1" { bound: 0 .. 256; }
+loop "md5::Random::init.L2" { bound: 0 .. 16; }
+ # some sort of iter funcs in Random::update
+ # -> default value as otherwise "dead end" warning and more than specified if 0
+loop "md5::Random::init.L3" { bound: 0 .. inf; }
+loop "md5::Random::init.L4" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

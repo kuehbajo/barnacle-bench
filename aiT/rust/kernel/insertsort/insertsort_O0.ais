@@ -1,0 +1,7 @@
+compiler: "arm-clang";
+
+loop "insertsort::insertsort_main.L1" { bound: 9 .. 9; }
+loop "insertsort::insertsort_main.L2" { bound: 1 .. 9; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

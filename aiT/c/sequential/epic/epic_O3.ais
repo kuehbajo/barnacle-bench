@@ -1,0 +1,97 @@
+compiler: "arm-clang";
+
+# hard to annotate
+# -> get "dead end" warning
+
+loop "epic_build_level.L5" { bound: 0 .. 599; }
+loop "epic_build_level.L6" { bound: 0 .. 599; }
+loop "epic_build_level.L7" { bound: 0 .. 599; }
+loop "epic_build_level.L8" { bound: 0 .. 599; }
+
+loop "epic_internal_filter.L1" { bound: 0 .. 4; }
+loop "epic_internal_filter.L2" { bound: 0 .. 15; }
+loop "epic_internal_filter.L3" { bound: 0 .. 46; }
+loop "epic_internal_filter.L4" { bound: 0 .. 4; }
+loop "epic_internal_filter.L5" { bound: 0 .. 15; }
+loop "epic_internal_filter.L6" { bound: 0 .. 15; }
+loop "epic_internal_filter.L7" { bound: 0 .. 15; }
+# reflect1
+loop "epic_internal_filter.L8" { bound: 0 .. 15; }
+loop "epic_internal_filter.L9" { bound: 0 .. 15; }
+loop "epic_internal_filter.L10" { bound: 0 .. 15; }
+
+loop "epic_internal_filter.L11" { bound: 0 .. 4; }
+loop "epic_internal_filter.L12" { bound: 0 .. 15; }
+loop "epic_internal_filter.L14" { bound: 0 .. 15; }
+loop "epic_internal_filter.L13" { bound: 0 .. 15; }
+loop "epic_internal_filter.L15" { bound: 0 .. 15; }
+loop "epic_internal_filter.L16" { bound: 0 .. 46; }
+loop "epic_internal_filter.L17" { bound: 0 .. 15; }
+loop "epic_internal_filter.L18" { bound: 0 .. 15; }
+# reflect1
+loop "epic_internal_filter.L19" { bound: 0 .. 15; }
+loop "epic_internal_filter.L20" { bound: 0 .. 15; }
+loop "epic_internal_filter.L21" { bound: 0 .. 15; }
+
+loop "epic_internal_filter.L22" { bound: 0 .. 15; }
+loop "epic_internal_filter.L23" { bound: 0 .. 97; }
+loop "epic_internal_filter.L24" { bound: 0 .. 46; }
+loop "epic_internal_filter.L25" { bound: 0 .. 4; }
+loop "epic_internal_filter.L26" { bound: 0 .. 15; }
+loop "epic_internal_filter.L27" { bound: 0 .. 97; }
+loop "epic_internal_filter.L28" { bound: 0 .. 97; }
+loop "epic_internal_filter.L29" { bound: 0 .. 15; }
+loop "epic_internal_filter.L30" { bound: 0 .. 15; }
+# reflect1
+loop "epic_internal_filter.L31" { bound: 0 .. 15; }
+loop "epic_internal_filter.L32" { bound: 0 .. 15; }
+loop "epic_internal_filter.L33" { bound: 0 .. 15; }
+
+loop "epic_internal_filter.L34" { bound: 0 .. 46; }
+# reflect1
+loop "epic_internal_filter.L35" { bound: 0 .. 15; }
+loop "epic_internal_filter.L36" { bound: 0 .. 15; }
+loop "epic_internal_filter.L37" { bound: 0 .. 15; }
+
+loop "epic_internal_filter.L38" { bound: 0 .. 97; }
+loop "epic_internal_filter.L39" { bound: 0 .. 15; }
+loop "epic_internal_filter.L40" { bound: 0 .. 15; }
+loop "epic_internal_filter.L41" { bound: 0 .. 15; }
+loop "epic_internal_filter.L42" { bound: 0 .. 4; }
+loop "epic_internal_filter.L43" { bound: 0 .. 4; }
+loop "epic_internal_filter.L45" { bound: 0 .. 15; }
+loop "epic_internal_filter.L46" { bound: 0 .. 15; }
+# reflect1
+loop "epic_internal_filter.L47" { bound: 0 .. 15; }
+loop "epic_internal_filter.L48" { bound: 0 .. 15; }
+loop "epic_internal_filter.L49" { bound: 0 .. 15; }
+loop "epic_internal_filter.L44" { bound: 0 .. 15; }
+
+loop "epic_internal_filter.L50" { bound: 0 .. 15; }
+loop "epic_internal_filter.L51" { bound: 0 .. 46; }
+loop "epic_internal_filter.L52" { bound: 0 .. 46; }
+loop "epic_internal_filter.L53" { bound: 0 .. 15; }
+loop "epic_internal_filter.L54" { bound: 0 .. 15; }
+loop "epic_internal_filter.L55" { bound: 0 .. 4; }
+# reflect1
+loop "epic_internal_filter.L56" { bound: 0 .. 15; }
+loop "epic_internal_filter.L57" { bound: 0 .. 15; }
+
+loop "epic_internal_filter.L58" { bound: 0 .. 15; }
+loop "epic_internal_filter.L59" { bound: 0 .. 15; }
+loop "epic_internal_filter.L60" { bound: 0 .. 15; }
+loop "epic_internal_filter.L61" { bound: 0 .. 15; }
+loop "epic_internal_filter.L62" { bound: 0 .. 15; }
+
+loop "epic_internal_filter.L63" { bound: 0 .. 4; }
+loop "epic_internal_filter.L64" { bound: 0 .. 97; }
+loop "epic_internal_filter.L65" { bound: 0 .. 15; }
+# reflect1
+loop "epic_internal_filter.L67" { bound: 0 .. 15; }
+loop "epic_internal_filter.L68" { bound: 0 .. 15; }
+loop "epic_internal_filter.L69" { bound: 0 .. 15; }
+loop "epic_internal_filter.L66" { bound: 0 .. 15; }
+
+loop "__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }

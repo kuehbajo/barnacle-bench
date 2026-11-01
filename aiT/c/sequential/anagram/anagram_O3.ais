@@ -1,0 +1,30 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling
+
+loop "anagram_BuildWord.L1" { bound: 0 .. 1; }
+
+loop "anagram_FindAnagram.L1" { bound: 0 .. 6; }
+loop "anagram_FindAnagram.L2" { bound: 0 .. 11; }
+loop "anagram_FindAnagram.L3" { bound: 0 .. 11; }
+loop "anagram_FindAnagram.L5" { bound: 0 .. 5; }
+loop "anagram_FindAnagram.L6" { bound: 0 .. 5; }
+loop "anagram_FindAnagram.L7" { bound: 0 .. 5; }
+
+loop "anagram_main.L2" { bound: 0 .. 11; }
+loop "anagram_main.L4" { bound: 0 .. 2; }
+loop "anagram_main.L5" { bound: 0 .. 2; }
+loop "anagram_main.L6" { bound: 0 .. 1967; }
+
+loop "anagram_qsorts.L1" { bound: 0 .. 10; }
+loop "anagram_qsorts.L2" { bound: 0 .. 1; }
+loop "anagram_qsorts.L3" { bound: 0 .. 10; }
+loop "anagram_qsorts.L4" { bound: 0 .. 6; }
+loop "anagram_qsorts.L5" { bound: 0 .. 7; }
+loop "anagram_qsorts.L6" { bound: 0 .. 1; }
+loop "anagram_qsorts.L7" { bound: 0 .. 1; }
+
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }
+
+routine "anagram_FindAnagram" { recursion bound: 1 .. 51; }
+routine "anagram_qsorts" { recursion bound: 1 .. 17; }

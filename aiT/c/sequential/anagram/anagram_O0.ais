@@ -1,0 +1,29 @@
+compiler: "arm-clang";
+
+loop "anagram_BuildMask.L1" { bound: 11 .. 11; }
+loop "anagram_BuildMask.L3" { bound: 1 .. 2; }
+
+loop "anagram_BuildWord.L1" { bound: 3 .. 5; }
+loop "anagram_BuildWord.L3" { bound: 26 .. 26; }
+
+loop "anagram_AddWords.L1" { bound: 1967 .. 1967; }
+
+loop "anagram_DumpWords.L1" { bound: 3 .. 3; }
+loop "anagram_DumpWords.L2" { bound: 3 .. 5; }
+
+loop "anagram_FindAnagram.L1" { bound: 0 .. 6; }
+loop "anagram_FindAnagram.L2" { bound: 0 .. 11; }
+
+loop "anagram_main.L1" { bound: 3 .. 3; }
+
+loop "anagram_swapi.L1" { bound: 4 .. 4; }
+
+loop "anagram_qsorts.L1" { bound: 0 .. 3; }
+loop "anagram_qsorts.L2" { bound: 0 .. 10; }
+loop "anagram_qsorts.L3" { bound: 1 .. 6; }
+loop "anagram_qsorts.L4" { bound: 1 .. 7; }
+
+loop "anagram_bzero.L1" { bound: 8 .. 800; }
+
+routine "anagram_FindAnagram" { recursion bound: 1 .. 51; }
+routine "anagram_qsorts" { recursion bound: 1 .. 17; }

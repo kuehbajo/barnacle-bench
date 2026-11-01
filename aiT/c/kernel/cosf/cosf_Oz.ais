@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "cosf_main.L1" { bound: 0 .. 100; }

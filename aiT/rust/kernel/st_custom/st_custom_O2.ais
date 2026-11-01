@@ -1,0 +1,13 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x + 10x times
+
+loop "st_custom::st_main.L1" { bound: 0 .. 100; } # -> looks unrolled -> 10x
+loop "st_custom::st_main.L2" { bound: 0 .. 100; } # -> looks unrolled -> 10x
+loop "st_custom::st_main.L3" { bound: 0 .. 5; } # -> looks unrolled -> 4x
+loop "st_custom::st_main.L4" { bound: 0 .. 100; } # -> looks unrolled -> 10x
+loop "st_custom::st_main.L5" { bound: 0 .. 100; } # -> looks unrolled -> 10x
+loop "st_custom::st_main.L6" { bound: 0 .. 5; } # -> looks unrolled -> 4x
+loop "st_custom::st_main.L7" { bound: 0 .. 100; } # -> looks unrolled -> 10x
+loop "st_custom::st_main.L8" { bound: 0 .. 5; } # -> looks unrolled -> 4x
+loop "st_custom::st_main.L9" { bound: 0 .. 5; } # -> looks unrolled -> 4x

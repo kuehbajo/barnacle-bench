@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+loop "filterbank_core.L1" { bound: 0 .. 8; }
+
+loop "filterbank_main.L4" { bound: 0 .. 2; }

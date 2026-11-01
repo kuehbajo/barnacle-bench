@@ -1,0 +1,16 @@
+compiler: "arm-clang";
+
+loop "fir2dim_pin_down.L1" { bound: 4 .. 4; }
+loop "fir2dim_pin_down.L2" { bound: 4 .. 4; }
+loop "fir2dim_pin_down.L3" { bound: 9 .. 9; }
+loop "fir2dim_pin_down.L4" { bound: 6 .. 6; }
+loop "fir2dim_pin_down.L5" { bound: 4 .. 4; }
+loop "fir2dim_pin_down.L6" { bound: 4 .. 4; }
+loop "fir2dim_pin_down.L7" { bound: 6 .. 6; }
+loop "fir2dim_pin_down.L8" { bound: 16 .. 16; }
+
+loop "fir2dim_main.L1" { bound: 4 .. 4; }
+loop "fir2dim_main.L2" { bound: 4 .. 4; }
+loop "fir2dim_main.L3" { bound: 3 .. 3; }
+loop "fir2dim_main.L4" { bound: 3 .. 3; }
+loop "fir2dim_main.L5" { bound: 3 .. 3; }

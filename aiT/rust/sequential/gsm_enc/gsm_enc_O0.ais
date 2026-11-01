@@ -1,0 +1,79 @@
+compiler: "arm-clang";
+
+loop "<gsm_enc::IntSpecific as gsm_enc::LtpSpecific>::correlate(&[i16; 40], &[i16], usize).L1" { bound: 0 .. 40; }
+
+loop "gsm_enc::gsm_enc_div.L1" { bound: 15 .. 15; }
+
+loop "gsm_enc::gsm_enc_gsm_coder.L1" { bound: 4 .. 4; }
+loop "gsm_enc::gsm_enc_gsm_coder.L2" { bound: 40 .. 40; }
+
+loop "gsm_enc::gsm_enc_larp_to_rp.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc::gsm_enc_gsm_preprocess.L1" { bound: 160 .. 160; }
+
+loop "gsm_enc::gsm_enc_autocorrelation.L1" { bound: 160 .. 160; }
+loop "gsm_enc::gsm_enc_autocorrelation.L2" { bound: 0 .. 8; }
+loop "gsm_enc::gsm_enc_autocorrelation.L3" { bound: 152 .. 152; }
+loop "gsm_enc::gsm_enc_autocorrelation.L4" { bound: 0 .. 9; }
+loop "gsm_enc::gsm_enc_autocorrelation.L5" { bound: 160 .. 160; }
+loop "gsm_enc::gsm_enc_autocorrelation.L6" { bound: 0 .. 9; }
+loop "gsm_enc::gsm_enc_autocorrelation.L7" { bound: 0 .. 8; }
+
+loop "gsm_enc::gsm_enc_weighting_filter.L1" { bound: 40 .. 40; }
+
+loop "gsm_enc::gsm_enc_apcm_quantization.L1" { bound: 13 .. 13; }
+loop "gsm_enc::gsm_enc_apcm_quantization.L2" { bound: 6 .. 6; }
+
+loop "gsm_enc::gsm_enc_coefficients_0_12.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc::gsm_enc_coefficients_13_26.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc::gsm_enc_coefficients_27_39.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc::gsm_enc_coefficients_40_159.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc::gsm_enc_rpe_grid_selection.L1" { bound: 12 .. 12; }
+loop "gsm_enc::gsm_enc_rpe_grid_selection.L2" { bound: 13 .. 13; }
+loop "gsm_enc::gsm_enc_rpe_grid_selection.L3" { bound: 13 .. 13; }
+loop "gsm_enc::gsm_enc_rpe_grid_selection.L4" { bound: 13 .. 13; }
+
+loop "gsm_enc::gsm_enc_rpe_grid_positioning.L1" { bound: 12 .. 12; }
+
+loop "gsm_enc::gsm_enc_reflection_coefficients.L1" { bound: 9 .. 9; }
+loop "gsm_enc::gsm_enc_reflection_coefficients.L2" { bound: 7 .. 7; }
+loop "gsm_enc::gsm_enc_reflection_coefficients.L3" { bound: 8 .. 8; }
+loop "gsm_enc::gsm_enc_reflection_coefficients.L4" { bound: 1 .. 7; }
+loop "gsm_enc::gsm_enc_reflection_coefficients.L5" { bound: 1 .. 8; }
+
+loop "gsm_enc::gsm_enc_apcm_inverse_quantization.L1" { bound: 13 .. 13; }
+
+loop "gsm_enc::gsm_enc_long_term_analysis_filtering::{{closure}}(i16).L1" { bound: 0 .. 40; }
+
+loop "gsm_enc::gsm_enc_short_term_analysis_filtering.L1" { bound: 13 .. 120; }
+loop "gsm_enc::gsm_enc_short_term_analysis_filtering.L2" { bound: 8 .. 8; }
+
+loop "gsm_enc::gsm_enc_calculation_of_the_ltp_parameters.L2" { bound: 40 .. 40; }
+loop "gsm_enc::gsm_enc_calculation_of_the_ltp_parameters.L4" { bound: 120 .. 120; }
+loop "gsm_enc::gsm_enc_calculation_of_the_ltp_parameters.L6" { bound: 40 .. 40; }
+loop "gsm_enc::gsm_enc_calculation_of_the_ltp_parameters.L7" { bound: 3 .. 3; }
+
+loop "gsm_enc::gsm_enc_transformation_to_log_area_ratios.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc::gsm_enc_apcm_quantization_xmaxc_to_exp_mant.L1" { bound: 0 .. 3; }
+
+loop "gsm_enc::gsm_enc_main.L1" { bound: 20 .. 20; }
+
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<i16, i16, core::iter::adapters::map::map_fold::{closure_env#0}<&i16, i16, i16, gsm_enc::gsm_enc_calculation_of_the_ltp_parameters::{closure_env#0}<gsm_enc::IntSpecific>, core::iter::traits::iterator::Iterator::max_by::fold::{closure_env#0}<i16, fn(&i16, &i16) -> core::cmp::Ordering>>>.L1" {
+    bound: 0 .. 40;
+}
+
+loop "<[i16] as core::slice::specialize::SpecFill<i16>>::spec_fill(&mut [i16], i16).L1" {
+    bound: 0 .. 8;
+}
+
+loop "<[i32] as core::slice::specialize::SpecFill<i32>>::spec_fill(&mut [i32], i32).L1" {
+    bound: 0 .. 9;
+}
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

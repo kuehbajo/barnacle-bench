@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "filterbank_core.L3" { bound: 0 .. 8; } # outer loop only iterates 128 -> this loop is duplicated (even); also seems unrolled 4x
+loop "filterbank_core.L4" { bound: 0 .. 8; } # duplicate; also seems unrolled 4x
+loop "filterbank_core.L6" { bound: 0 .. 8; } # outer loop only iterates 128 -> this loop is duplicated (even); also seems unrolled 4x
+loop "filterbank_core.L7" { bound: 0 .. 8; }  # duplicate; also seems unrolled 4x
+
+loop "filterbank_main.L2" { bound: 0 .. 32; }
+loop "filterbank_main.L3" { bound: 0 .. 2; }

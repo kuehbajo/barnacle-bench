@@ -1,0 +1,10 @@
+compiler: "arm-clang";
+
+# loop
+loop "fac::fac_main.L1" { bound: 6 .. 6; }
+
+# recursion
+routine "fac::fac_fac" { recursion bound: 1 .. 6; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

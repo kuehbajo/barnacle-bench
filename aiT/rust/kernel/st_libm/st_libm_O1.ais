@@ -1,0 +1,7 @@
+compiler: "arm-clang";
+
+loop "st_libm::st_main.L1" { bound: 0 .. 1000; }
+loop "st_libm::st_main.L2" { bound: 0 .. 1000; }
+loop "st_libm::st_main.L3" { bound: 0 .. 1000; }
+loop "st_libm::st_main.L4" { bound: 0 .. 1000; }
+loop "st_libm::st_main.L5" { bound: 0 .. 1000; }

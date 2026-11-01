@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "h264_dec::h264_dec_main.L1" { bound: 0 .. 2; }
+loop "h264_dec::h264_dec_main.L2" { bound: 0 .. 1; }
+loop "h264_dec::h264_dec_main.L3" { bound: 0 .. 4; }
+loop "h264_dec::h264_dec_main.L4" { bound: 0 .. 4; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

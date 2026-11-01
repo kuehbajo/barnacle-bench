@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+loop "fft_bit_reduct.L1" { bound: 0 .. 1024; }
+loop "fft_bit_reduct.L5" { bound: 0 .. 512; }
+loop "fft_bit_reduct.L6" { bound: 0 .. 512; }

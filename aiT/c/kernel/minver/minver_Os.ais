@@ -1,0 +1,11 @@
+compiler: "arm-clang";
+
+loop "minver_minver.L9" { bound: 0 .. 3; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001a50.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001a50.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001c36.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001c36.L2" { bound: 0 .. inf; }

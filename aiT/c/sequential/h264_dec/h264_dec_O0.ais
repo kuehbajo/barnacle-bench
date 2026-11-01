@@ -1,0 +1,11 @@
+compiler: "arm-clang";
+
+loop "h264_dec_decode_one_macroblock.L1" { bound: 2 .. 2; }
+loop "h264_dec_decode_one_macroblock.L2" { bound: 1 .. 1; }
+loop "h264_dec_decode_one_macroblock.L3" { bound: 4 .. 4; }
+loop "h264_dec_decode_one_macroblock.L8" { bound: 4 .. 4; }
+loop "h264_dec_decode_one_macroblock.L9" { bound: 4 .. 4; }
+loop "h264_dec_decode_one_macroblock.L10" { bound: 2 .. 2; }
+loop "h264_dec_decode_one_macroblock.L11" { bound: 2 .. 2; }
+loop "h264_dec_decode_one_macroblock.L12" { bound: 4 .. 4; }
+loop "h264_dec_decode_one_macroblock.L13" { bound: 4 .. 4; }

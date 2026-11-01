@@ -1,0 +1,29 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "pm_libm::pm_main.L1" { bound: 0 .. 15; }
+loop "pm_libm::pm_main.L2" { bound: 0 .. 8; }
+loop "pm_libm::pm_main.L3" { bound: 0 .. 16; }
+loop "pm_libm::pm_main.L4" { bound: 0 .. 21; }
+loop "pm_libm::pm_main.L5" { bound: 0 .. 8; }
+loop "pm_libm::pm_main.L6" { bound: 0 .. 60; }
+loop "pm_libm::pm_main.L7" { bound: 0 .. 8; }
+loop "pm_libm::pm_main.L8" { bound: 0 .. 64; }
+loop "pm_libm::pm_main.L9" { bound: 0 .. 64; }
+loop "pm_libm::pm_main.L13" { bound: 0 .. 64; }
+loop "pm_libm::pm_main.L14" { bound: 0 .. 21; }
+loop "pm_libm::pm_main.L16" { bound: 0 .. 59; }
+
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L2" { bound: 0 .. inf; }
+
+loop "compiler_builtins::arm::__aeabi_memcpy4::__aeabi_memcpy4.L1" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

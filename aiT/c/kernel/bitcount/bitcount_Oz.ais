@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+loop "bitcount_bit_count.L1" { bound: 0 .. 8; }
+
+loop "bitcount_main.L2" { bound: 0 .. 10; }

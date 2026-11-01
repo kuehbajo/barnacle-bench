@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "prime_main.L1" { bound: 0 .. 4; }
+loop "prime_main.L2" { bound: 0 .. 4; }

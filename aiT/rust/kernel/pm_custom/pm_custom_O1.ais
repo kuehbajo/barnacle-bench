@@ -1,0 +1,46 @@
+compiler: "arm-clang";
+
+loop "pm_custom::pm_main.L1" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L2" { bound: 0 .. 21; }
+loop "pm_custom::pm_main.L3" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L4" { bound: 0 .. 60; }
+loop "pm_custom::pm_main.L5" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L6" { bound: 0 .. 21; }
+loop "pm_custom::pm_main.L7" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L8" { bound: 0 .. 21; }
+loop "pm_custom::pm_main.L10" { bound: 0 .. 21; }
+loop "pm_custom::pm_main.L11" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L12" { bound: 0 .. 59; }
+
+loop "pm_custom::pm_main.L4" { irreducible bound: 0 .. 64; }
+loop "pm_custom::pm_main.L6" { irreducible bound: 0 .. 64; }
+loop "pm_custom::pm_main.L8" { irreducible bound: 0 .. 64; }
+
+loop "core::iter::traits::iterator::Iterator::sum<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>>, pm_custom::pm_kernel::{closure_env#0}>, pm_custom::pm_kernel::{closure_env#1}>, f32>.L1" {
+    bound: 0 .. 64;
+} # -> sum in pm_kernel.L6 -> weighted MSE -> given bound min 0 max 64 -> warnings -> computed min <16
+loop "core::iter::traits::iterator::Iterator::sum<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>>, pm_custom::pm_kernel::{closure_env#2}>, pm_custom::pm_kernel::{closure_env#3}>, f32>.L1" {
+    bound: 0 .. 64;
+} # -> sum in pm_kernel.L8 -> weighted MSE -> given bound min 0 max 64 -> contradicts -> computed min <16
+loop "core::iter::traits::iterator::Iterator::sum<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>>, pm_custom::pm_kernel::{closure_env#5}>, pm_custom::pm_kernel::{closure_env#6}>, f32>.L1" {
+    bound: 0 .. 64;
+} # -> sum in pm_kernel.L10 -> weighted MSE -> given bound min 0 max 64 -> contradicts -> computed min <16
+
+loop "<core::iter::adapters::copied::Copied<I> as core::iter::traits::iterator::Iterator>::fold<core::slice::iter::Iter<f32>, f32, f32, core::iter::traits::iterator::Iterator::max_by::fold::{closure_env#0}<f32, fn(&f32, &f32) -> core::cmp::Ordering>>.L1" {
+    bound: 0 .. 64;
+} # -> max_by in pm_kernel.L4 -> template_peak -> given bound min 0 max 64 -> warnings -> min 0
+
+loop "core::slice::<impl [T]>::fill<f32>.L1" { bound: 0 .. 60; } # -> fill in pm_kernel -> size 60 -> min 0
+
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L2" { bound: 0 .. inf; } # -> slice::fill -> unclear -> default
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L3" { bound: 0 .. inf; } # -> slice::fill -> unclear -> default
+
+loop "compiler_builtins::arm::__aeabi_memcpy4::__aeabi_memcpy4.L1" { bound: 0 .. inf; } # -> copy_from_slice -> unclear -> default
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; } # -> aeabi_memcpy4 -> unclear -> default
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; } # -> aeabi_memcpy4 -> unclear -> default
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; } # -> aeabi_memcpy4 -> unclear -> default
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; } # -> aeabi_memcpy4 -> unclear -> default
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

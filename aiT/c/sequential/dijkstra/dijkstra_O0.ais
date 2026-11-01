@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+loop "dijkstra_enqueue.L1" { bound: 0 .. 1000; }
+
+loop "dijkstra_find.L2" { bound: 100 .. 1000; }
+loop "dijkstra_find.L3" { bound: 100 .. 100; }
+
+loop "dijkstra_main.L1" { bound: 20 .. 20; }

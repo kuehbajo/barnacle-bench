@@ -1,0 +1,15 @@
+compiler: "arm-clang";
+
+loop "rijndael_dec::rijndael_dec_decfile.L1" { bound: 16 .. 16; }
+loop "rijndael_dec::rijndael_dec_decfile.L2" { bound: 2046 .. 2046; }
+loop "rijndael_dec::rijndael_dec_decfile.L3" { bound: 16 .. 16; }
+
+loop "rijndael_dec::aes::rijndael_dec_set_key.L4" { bound: 13 .. 13; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

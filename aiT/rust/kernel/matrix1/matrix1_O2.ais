@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 3x times
+
+loop "matrix1::matrix1_main.L1" { bound: 0 .. 10; }
+loop "matrix1::matrix1_main.L2" { bound: 0 .. 3; }

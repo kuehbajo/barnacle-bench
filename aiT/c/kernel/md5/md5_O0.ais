@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+loop "md5_InitRandomStruct.L1" { bound: 256 .. 256; }
+
+loop "md5_main.L1" { bound: 10 .. 10; }

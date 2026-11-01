@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "rad2deg::rad2deg_main.L1" { bound: 0 .. 91; }

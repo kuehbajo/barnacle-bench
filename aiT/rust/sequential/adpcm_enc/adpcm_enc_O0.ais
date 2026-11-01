@@ -1,0 +1,16 @@
+compiler: "arm-clang";
+
+loop "adpcm_enc::adpcm_enc_encode.L1" { bound: 12 .. 12; }
+loop "adpcm_enc::adpcm_enc_encode.L2" { bound: 22 .. 22; }
+
+loop "adpcm_enc::adpcm_enc_filtez.L1" { bound: 6 .. 6; }
+
+loop "adpcm_enc::adpcm_enc_quantl.L1" { bound: 1 .. 30; }
+
+loop "adpcm_enc::adpcm_enc_upzero.L1" { bound: 6 .. 6; }
+loop "adpcm_enc::adpcm_enc_upzero.L2" { bound: 6 .. 6; }
+
+loop "adpcm_enc::adpcm_enc_main.L1" { bound: 3 .. 3; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

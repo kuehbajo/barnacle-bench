@@ -1,0 +1,35 @@
+compiler: "arm-clang";
+
+loop "fmref::fmref_run_lpf.L1" { bound: 64 .. 64; }
+
+loop "fmref::fmref_fb_compact.L1" { bound: 0 .. 200; } # -> conversion to bytes -> buff length
+loop "fmref::fmref_fb_compact.L2" { bound: 0 .. 200; } # -> conversion from bytes -> buff length
+
+loop "fmref::fmref_get_floats.L1" { bound: 140 .. 200; }
+
+loop "fmref::fmref_init_lpf_data.L1" { bound: 64 .. 64; }
+
+loop "fmref::fmref_run_equalizer.L2" { bound: 11 .. 11; }
+loop "fmref::fmref_run_equalizer.L3" { bound: 10 .. 10; }
+
+loop "fmref::fmref_init_equalizer.L1" { bound: 11 .. 11; }
+loop "fmref::fmref_init_equalizer.L2" { bound: 11 .. 11; }
+loop "fmref::fmref_init_equalizer.L3" { bound: 10 .. 10; }
+
+loop "fmref::fmref_main.L1" { bound: 64 .. 64; }
+loop "fmref::fmref_main.L2" { bound: 2 .. 2; }
+
+
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memmove.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L5" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L6" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L7" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L8" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

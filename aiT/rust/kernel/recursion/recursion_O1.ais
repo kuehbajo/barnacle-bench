@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+# one recursion kept; other changed to loop
+# -> recursion peeling or tail-recursion reduction or recursion-to-iteration
+
+loop "recursion::recursion_fib.L1" { bound: 0 .. 177; }
+
+routine "recursion::recursion_fib" { recursion bound: 0 .. 177; }

@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "rijndael_enc_set_key.L1" { bound: 0 .. 0; }
+
+loop "rijndael_enc_encfile.L2" { bound: 0 .. 1960; }
+
+loop "rijndael_enc_fread.L1" { bound: 0 .. 4; }
+
+# for the compiler builtins default bounds are used
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }

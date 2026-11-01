@@ -1,0 +1,80 @@
+compiler: "arm-clang";
+
+# suspect loop splitting + loop conversion + induction variable optimization
+# -> hard to annotate
+
+loop "susan_get_image.L1" { bound: 0 .. 3; }
+loop "susan_get_image.L2" { bound: 0 .. 2; }
+loop "susan_get_image.L3" { bound: 0 .. 3; }
+loop "susan_get_image.L4" { bound: 0 .. 2; }
+loop "susan_get_image.L5" { bound: 0 .. 3; }
+loop "susan_get_image.L6" { bound: 0 .. 2; }
+
+loop "susan_principle.L1" { bound: 0 .. 0; }
+loop "susan_principle.L2" { bound: 0 .. 0; }
+
+loop "susan_principle_small.L1" { bound: 0 .. 0; }
+loop "susan_principle_small.L2" { bound: 0 .. 0; }
+
+loop "susan_enlarge.L1" { bound: 0 .. 95; }
+loop "susan_enlarge.L2" { bound: 0 .. 7; }
+loop "susan_enlarge.L3" { bound: 0 .. 0; }
+loop "susan_enlarge.L4" { bound: 0 .. 1; }
+loop "susan_enlarge.L5" { bound: 0 .. 109; }
+loop "susan_enlarge.L6" { bound: 0 .. 109; }
+loop "susan_enlarge.L7" { bound: 0 .. 109; }
+loop "susan_enlarge.L8" { bound: 0 .. 109; }
+loop "susan_enlarge.L9" { bound: 0 .. 109; }
+loop "susan_enlarge.L10" { bound: 0 .. 109; }
+
+loop "susan_smoothing.L1" { bound: 0 .. 15; }
+loop "susan_smoothing.L2" { bound: 0 .. 15; }
+loop "susan_smoothing.L3" { bound: 0 .. 15; }
+loop "susan_smoothing.L4" { bound: 0 .. 3; }
+loop "susan_smoothing.L5" { bound: 0 .. 95; }
+loop "susan_smoothing.L6" { bound: 0 .. 76; }
+loop "susan_smoothing.L7" { bound: 0 .. 15; }
+loop "susan_smoothing.L8" { bound: 0 .. 3; }
+
+loop "susan_thin.L1" { bound: 0 .. 87; }
+
+loop "susan_edges.L1" { bound: 0 .. 89; }
+loop "susan_edges.L2" { bound: 0 .. 70; }
+loop "susan_edges.L3" { bound: 0 .. 87; }
+loop "susan_edges.L4" { bound: 0 .. 68; }
+
+loop "susan_edges_small.L1" { bound: 0 .. 0; }
+loop "susan_edges_small.L2" { bound: 0 .. 0; }
+loop "susan_edges_small.L3" { bound: 0 .. 0; }
+loop "susan_edges_small.L4" { bound: 0 .. 0; }
+
+loop "susan_corners.L1" { bound: 0 .. 85; }
+loop "susan_corners.L2" { bound: 0 .. 66; }
+loop "susan_corners.L3" { bound: 0 .. 85; }
+loop "susan_corners.L4" { bound: 0 .. 66; }
+
+loop "susan_corners_quick.L1" { bound: 0 .. 0; }
+loop "susan_corners_quick.L2" { bound: 0 .. 0; }
+loop "susan_corners_quick.L3" { bound: 0 .. 0; }
+loop "susan_corners_quick.L4" { bound: 0 .. 0; }
+
+loop "susan_call_susan.L4" { bound: 0 .. 0; }
+loop "susan_call_susan.L5" { bound: 0 .. 0; }
+loop "susan_call_susan.L6" { bound: 0 .. 0; }
+loop "susan_call_susan.L7" { bound: 0 .. 0; }
+loop "susan_call_susan.L8" { bound: 0 .. 7220; }
+loop "susan_call_susan.L9" { bound: 0 .. 0; }
+loop "susan_call_susan.L10" { bound: 0 .. 7220; }
+loop "susan_call_susan.L11" { bound: 0 .. 0; }
+
+loop "susan_wccfread.L1" { bound: 0 .. 1805; }
+
+loop "susan_wccmemcpy.L1" { bound: 0 .. 19; }
+
+# for the compiler builtins default bounds are used
+loop "__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "__aeabi_memset.L3" { bound: 0 .. inf; }
+
+loop ":Anon_0x8006850.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8006850.L2" { bound: 0 .. inf; }

@@ -1,0 +1,33 @@
+compiler: "arm-clang";
+
+loop "pm_kernel.L3" { bound: 64 .. 64; }
+loop "pm_kernel.L4" { bound: 21 .. 21; }
+loop "pm_kernel.L5" { bound: 53 .. 64; }
+loop "pm_kernel.L6" { bound: 60 .. 60; }
+loop "pm_kernel.L7" { bound: 63 .. 63; }
+loop "pm_kernel.L8" { bound: 64 .. 64; }
+loop "pm_kernel.L9" { bound: 64 .. 64; }
+# if
+loop "pm_kernel.L10" { bound: 21 .. 21; }
+loop "pm_kernel.L11" { bound: 64 .. 64; }
+loop "pm_kernel.L12" { bound: 64 .. 64; }
+loop "pm_kernel.L13" { bound: 64 .. 64; }
+# else
+loop "pm_kernel.L14" { bound: 0 .. 0; }
+loop "pm_kernel.L15" { bound: 0 .. 0; }
+loop "pm_kernel.L16" { bound: 0 .. 0; }
+
+loop "pm_kernel.L17" { bound: 20 .. 20; }
+# if
+loop "pm_kernel.L18" { bound: 21 .. 21; }
+loop "pm_kernel.L19" { bound: 64 .. 64; }
+loop "pm_kernel.L20" { bound: 64 .. 64; }
+# else
+loop "pm_kernel.L21" { bound: 64 .. 64; }
+loop "pm_kernel.L22" { bound: 64 .. 64; }
+
+loop "pm_kernel.L24" { bound: 59 .. 59; }
+
+loop "pm_memcpy.L1" { bound: 44 .. 256; }
+
+loop "pm_memset.L1" { bound: 64 .. 64; }

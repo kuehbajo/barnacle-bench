@@ -1,0 +1,22 @@
+compiler: "arm-clang";
+
+# suspect creating an error path
+# still get "dead end" warning
+
+loop "huff_dec_read_header.L2" { bound: 0 .. 1; }
+loop "huff_dec_read_header.L3" { bound: 0 .. 257; }
+loop "huff_dec_read_header.L4" { bound: 0 .. 1; }
+loop "huff_dec_read_header.L5" { bound: 0 .. 1; }
+loop "huff_dec_read_header.L6" { bound: 0 .. 1; }
+loop "huff_dec_read_header.L7" { bound: 0 .. 1; }
+loop "huff_dec_read_header.L8" { bound: 0 .. 2; }
+loop "huff_dec_read_header.L9" { bound: 0 .. 1; }
+loop "huff_dec_read_header.L10" { bound: 0 .. 2; }
+
+loop "huff_dec_main.L2" { bound: 0 .. 9; }
+loop "huff_dec_main.L3" { bound: 0 .. 601; }
+loop "huff_dec_main.L4" { bound: 0 .. 9; }
+loop "huff_dec_main.L5" { bound: 0 .. inf; }
+loop "huff_dec_main.L6" { bound: 0 .. inf; }
+
+routine "huff_dec_read_header" { irreducible bound: 0 .. 256; }

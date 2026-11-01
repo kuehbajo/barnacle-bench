@@ -1,0 +1,11 @@
+compiler: "arm-clang";
+
+loop "rijndael_enc::rijndael_enc_main.L3" { bound: 0 .. 16; }
+loop "rijndael_enc::rijndael_enc_main.L5" { bound: 0 .. 1960; }
+
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

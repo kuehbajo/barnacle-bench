@@ -1,0 +1,4 @@
+compiler: "arm-clang";
+
+loop "g723_enc_main.L1" { bound: 256 .. 256; }
+loop "g723_enc_main.L2" { bound: 0 .. 0; }

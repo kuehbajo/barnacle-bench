@@ -1,0 +1,13 @@
+compiler: "arm-clang";
+
+loop "mpeg2::mpeg2_fullsearch.L1" { bound: 0 .. 7; }
+loop "mpeg2::mpeg2_fullsearch.L2" { bound: 0 .. 56; }
+loop "mpeg2::mpeg2_fullsearch.L3" { bound: 0 .. 1; }
+loop "mpeg2::mpeg2_fullsearch.L4" { bound: 0 .. 3; }
+loop "mpeg2::mpeg2_fullsearch.L5" { bound: 0 .. 3; }
+
+loop "mpeg2::mpeg2_main.L1" { bound: 0 .. 8; }
+loop "mpeg2::mpeg2_main.L2" { bound: 0 .. 11; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,88 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 8x times
+# hard to annotate
+# some bounds aiT gets max 20001
+
+loop "susan::susan_getint.L1" { bound: 0 .. 3; }
+
+# -> nested around what appears to be read_line(); L2 should be max 57, but aiT deduces max 9000
+# -> unclear
+# -> manually specifying with max inf still gets "dead end" warning
+# use default by not specifying bound
+# loop "susan::susan_getint.L3" { bound: 0 .. inf; }
+
+loop "susan::susan_getint.L4" { bound: 0 .. 2; }
+
+loop "susan::susan_main_base.L1" { bound: 0 .. 89; }
+loop "susan::susan_main_base.L2" { bound: 0 .. 70; }
+loop "susan::susan_main_base.L3" { bound: 0 .. 1; }
+loop "susan::susan_main_base.L4" { bound: 0 .. 8; }
+loop "susan::susan_main_base.L5" { bound: 0 .. 8; }
+loop "susan::susan_main_base.L6" { bound: 0 .. 8; }
+loop "susan::susan_main_base.L7" { bound: 0 .. 8; }
+loop "susan::susan_main_base.L8" { bound: 0 .. 8; }
+loop "susan::susan_main_base.L9" { bound: 0 .. 8; }
+loop "susan::susan_main_base.L10" { bound: 0 .. 8; }
+
+loop "susan::susan_call_susan.L3" { bound: 0 .. 0; }
+loop "susan::susan_call_susan.L4" { bound: 0 .. 0; }
+loop "susan::susan_call_susan.L6" { bound: 0 .. 87; }
+loop "susan::susan_call_susan.L7" { bound: 0 .. 68; }
+loop "susan::susan_call_susan.L12" { bound: 0 .. 68; }
+loop "susan::susan_call_susan.L13" { bound: 0 .. 95; }
+loop "susan::susan_call_susan.L14" { bound: 0 .. 7; }
+loop "susan::susan_call_susan.L15" { bound: 0 .. 7; }
+loop "susan::susan_call_susan.L16" { bound: 0 .. 109; }
+loop "susan::susan_call_susan.L17" { bound: 0 .. 0; }
+loop "susan::susan_call_susan.L18" { bound: 0 .. 7; }
+loop "susan::susan_call_susan.L19" { bound: 0 .. 66; }
+loop "susan::susan_call_susan.L20" { bound: 0 .. 7; }
+loop "susan::susan_call_susan.L23" { bound: 0 .. 7220; }
+loop "susan::susan_call_susan.L24" { bound: 0 .. 0; }
+loop "susan::susan_call_susan.L25" { bound: 0 .. 0; }
+loop "susan::susan_call_susan.L27" { bound: 0 .. 7; }
+loop "susan::susan_call_susan.L28" { bound: 0 .. 7220; }
+loop "susan::susan_call_susan.L29" { bound: 0 .. 15; }
+loop "susan::susan_call_susan.L30" { bound: 0 .. 15; }
+loop "susan::susan_call_susan.L31" { bound: 0 .. 15; }
+loop "susan::susan_call_susan.L32" { bound: 0 .. 15; }
+loop "susan::susan_call_susan.L33" { bound: 0 .. 95; }
+loop "susan::susan_call_susan.L34" { bound: 0 .. 76; }
+loop "susan::susan_call_susan.L35" { bound: 0 .. 15; }
+loop "susan::susan_call_susan.L36" { bound: 0 .. 15; }
+loop "susan::susan_call_susan.L37" { bound: 0 .. 85; }
+loop "susan::susan_call_susan.L38" { bound: 0 .. 66; }
+loop "susan::susan_call_susan.L40" { bound: 0 .. 7; }
+# assumed max 0 -> aiT warning more iterations than specified
+# -> use default
+# -> manually specifying with max inf still gets "dead end" warning
+# use default by not specifying bound
+#loop "susan::susan_call_susan.L41" { bound: 0 .. inf; }
+
+loop "susan::susan_int_to_uchar.L1" { bound: 0 .. 0; }
+loop "susan::susan_int_to_uchar.L2" { bound: 0 .. 0; }
+
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memmove.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L4" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L5" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L6" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L7" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L8" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

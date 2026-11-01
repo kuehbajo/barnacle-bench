@@ -1,0 +1,7 @@
+compiler: "arm-clang";
+
+loop "st_calc_LinCorrCoef.L2" { bound: 0 .. 19; } # st_sqrtf
+loop "st_calc_LinCorrCoef.L3" { bound: 0 .. 19; } # st_sqrtf
+
+loop "st_main.L5" { bound: 0 .. 19; } # st_sqrtf
+loop "st_main.L6" { bound: 0 .. 19; } # st_sqrtf

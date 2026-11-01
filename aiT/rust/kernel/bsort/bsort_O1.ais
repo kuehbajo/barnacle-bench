@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+# suspect outer loop unrolling 4x times
+
+loop "bsort::bsort_main.L1" { bound: 0 .. 25; }
+loop "bsort::bsort_main.L2" { bound: 0 .. 99; }
+loop "bsort::bsort_main.L3" { bound: 0 .. 99; }
+loop "bsort::bsort_main.L4" { bound: 0 .. 99; }
+loop "bsort::bsort_main.L5" { bound: 0 .. 99; }

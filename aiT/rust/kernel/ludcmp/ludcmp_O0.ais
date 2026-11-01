@@ -1,0 +1,14 @@
+compiler: "arm-clang";
+
+loop "ludcmp::ludcmp_test.L2" { bound: 5 .. 5; }
+loop "ludcmp::ludcmp_test.L3" { bound: 5 .. 5; }
+loop "ludcmp::ludcmp_test.L4" { bound: 5 .. 5; }
+loop "ludcmp::ludcmp_test.L5" { bound: 1 .. 5; }
+loop "ludcmp::ludcmp_test.L6" { bound: 1 .. 5; }
+loop "ludcmp::ludcmp_test.L7" { bound: 1 .. 5; }
+loop "ludcmp::ludcmp_test.L8" { bound: 1 .. 5; }
+loop "ludcmp::ludcmp_test.L9" { bound: 1 .. 5; }
+loop "ludcmp::ludcmp_test.L10" { bound: 1 .. 4; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

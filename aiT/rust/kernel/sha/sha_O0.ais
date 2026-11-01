@@ -1,0 +1,26 @@
+compiler: "arm-clang";
+
+loop "sha::sha_stream.L1" { bound: 5 .. 5; }
+
+loop "sha::sha_update.L1" { bound: 8 .. 128; }
+
+loop "sha::sha_transform.L1" { bound: 64 .. 64; }
+loop "sha::sha_transform.L2" { bound: 20 .. 20; }
+loop "sha::sha_transform.L3" { bound: 20 .. 20; }
+loop "sha::sha_transform.L4" { bound: 20 .. 20; }
+loop "sha::sha_transform.L5" { bound: 20 .. 20; }
+
+loop "sha::sha_byte_reverse.L1" { bound: 16 .. 16; }
+
+loop "sha::ShaFile::read_exact.L1" { bound: 0 .. 8192; }
+
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

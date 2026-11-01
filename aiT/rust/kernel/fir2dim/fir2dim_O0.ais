@@ -1,0 +1,23 @@
+compiler: "arm-clang";
+
+loop "fir2dim::fir2dim_main.L1" { bound: 4 ..4; }
+loop "fir2dim::fir2dim_main.L2" { bound: 4 .. 4; }
+
+loop "fir2dim::fir2dim_pin_down.L1" { bound: 16 .. 16; }
+loop "fir2dim::fir2dim_pin_down.L2" { bound: 9 .. 9; }
+loop "fir2dim::fir2dim_pin_down.L3" { bound: 6 .. 6; }
+loop "fir2dim::fir2dim_pin_down.L4" { bound: 4 .. 4; }
+loop "fir2dim::fir2dim_pin_down.L5" { bound: 6 .. 6; }
+loop "fir2dim::fir2dim_pin_down.L6" { bound: 16 .. 16; }
+loop "fir2dim::fir2dim_pin_down.L7" { bound: 4 .. 4; }
+
+loop "<core::iter::adapters::flatten::FlattenCompat<I,U> as core::iter::traits::iterator::Iterator>::next<core::iter::adapters::step_by::StepBy<core::slice::iter::ChunksExact<f32>>, core::slice::iter::Iter<f32>>.L1" {
+    bound: 3 .. 3;
+}
+
+loop "<core::iter::adapters::zip::Zip<A,B> as core::iter::adapters::zip::SpecFold>::spec_fold<core::iter::adapters::flatten::Flatten<core::iter::adapters::step_by::StepBy<core::slice::iter::ChunksExact<f32>>>, core::slice::iter::Iter<f32>, f32, core::iter::adapters::map::map_fold::{closure_env#0}<(&f32, &f32), f32, f32, fir2dim::fir2dim_main::{closure_env#0}, core::iter::traits::accum::{impl#128}::sum::{closure_env#0}<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::iter::adapters::flatten::Flatten<core::iter::adapters::step_by::StepBy<core::slice::iter::ChunksExact<f32>>>, core::slice::iter::Iter<f32>>, fir2dim::fir2dim_main::{closure_env#0}>>>>.L1" {
+    bound: 3 .. 3;
+}
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

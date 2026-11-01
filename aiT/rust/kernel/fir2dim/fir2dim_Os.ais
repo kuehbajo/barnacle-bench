@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "fir2dim::fir2dim_main.L1" { bound: 0 .. 4; }
+
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L2" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

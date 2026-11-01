@@ -1,0 +1,66 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+# arithm
+loop "ammunition::arithm::ammunition_divide_unsigned_integer_without_overflow_reaction.L1" { bound: 0 .. 0; }
+loop "ammunition::arithm::ammunition_divide_unsigned_integer_without_overflow_reaction.L2" { bound: 0 .. 0; }
+
+loop "ammunition::arithm::ammunition_unsigned_integer_to_based_string.L1" { bound: 0 .. 10; }
+loop "ammunition::arithm::ammunition_unsigned_integer_to_based_string.L3" { bound: 0 .. 5; }
+
+loop "ammunition::arithm::ammunition_integer_from_string.L2" { bound: 0 .. 10; }
+
+loop "ammunition::arithm::ammunition_unsigned_integer_from_string.L2" { bound: 0 .. 10; }
+
+# main
+loop "ammunition::ammunition_arithm_test.L2" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L4" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L5" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L7" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L8" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L10" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L12" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L13" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L14" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L16" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L18" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L19" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L20" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L22" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L24" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L25" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L26" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L28" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L30" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L31" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L32" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L34" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L36" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L37" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L38" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L40" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L42" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L43" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L44" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L46" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L48" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L49" { bound: 0 .. 2; }
+loop "ammunition::ammunition_arithm_test.L51" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L52" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L53" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L55" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L57" { bound: 0 .. 1; }
+loop "ammunition::ammunition_arithm_test.L58" { bound: 0 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L59" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L61" { bound: 0 .. 10; }
+loop "ammunition::ammunition_arithm_test.L63" { bound: 0 .. 1; }
+
+# for the compiler builtins default bounds are used
+loop "compiler_builtins::int::specialized_div_rem::u64_div_rem.L1" { bound: 0 .. inf; }
+
+# a recursion does not happen
+routine "ammunition::arithm::ammunition_integer_shift_right" { recursion bound: 0 .. 1; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

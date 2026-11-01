@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 2x times
+
+loop "jfdctint::jfdctint_main.L1" { bound: 0 .. 4; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

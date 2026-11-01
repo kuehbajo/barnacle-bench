@@ -1,0 +1,19 @@
+compiler: "arm-clang";
+
+
+loop "ndes::ndes_cyfun.L1" { bound: 16 .. 16; }
+loop "ndes::ndes_cyfun.L3" { bound: 8 .. 8; }
+loop "ndes::ndes_cyfun.L4" { bound: 32 .. 32; }
+
+loop "ndes::ndes_ks.L1" { bound: 2 .. 2; }
+loop "ndes::ndes_ks.L2" { bound: 16 .. 16; }
+
+loop "ndes::ndes_des.L1" { bound: 31 .. 31;  }
+loop "ndes::ndes_des.L2" { bound: 28 .. 28; }
+loop "ndes::ndes_des.L3" { bound: 16 .. 16; }
+loop "ndes::ndes_des.L4" { bound: 32 .. 32; }
+loop "ndes::ndes_des.L5" { bound: 16 .. 16; }
+loop "ndes::ndes_des.L6" { bound: 32 .. 32; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

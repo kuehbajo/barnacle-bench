@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "binarysearch::binarysearch_search.L1" { bound: 1 .. 4; }

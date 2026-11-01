@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+loop "bitcount::bitcount_main.L3" { bound: 0 .. 8; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

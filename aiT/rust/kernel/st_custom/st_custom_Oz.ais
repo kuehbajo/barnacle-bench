@@ -1,0 +1,7 @@
+compiler: "arm-clang";
+
+loop "st_custom::st_main.L1" { bound: 0 .. 1000; }
+
+loop "st_custom::st_var_stddev.L1" { bound: 0 .. 1000; }
+
+loop "st_custom::st_sum_mean.L1" { bound: 0 .. 1000; }

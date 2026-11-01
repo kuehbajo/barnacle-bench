@@ -1,0 +1,18 @@
+compiler: "arm-clang";
+
+loop "pm_kernel.L4" { bound: 0 .. 21; }
+loop "pm_kernel.L5" { bound: 0 .. 64; }
+loop "pm_kernel.L6" { bound: 0 .. 60; }
+loop "pm_kernel.L7" { bound: 0 .. 63; }
+# if
+loop "pm_kernel.L10" { bound: 0 .. 21; }
+# else
+loop "pm_kernel.L14" { bound: 0 .. 0; }
+
+loop "pm_kernel.L17" { bound: 0 .. 20; }
+loop "pm_kernel.L24" { bound: 0 .. 59; }
+
+loop "pm_memcpy.L1" { bound: 0 .. 256; }
+
+# for the compiler builtins default bounds are used
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }

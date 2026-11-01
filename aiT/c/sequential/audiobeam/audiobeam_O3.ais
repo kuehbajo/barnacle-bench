@@ -1,0 +1,29 @@
+compiler: "arm-clang";
+
+loop "audiobeam_process_signal.L2" { bound: 0 .. 13; }
+loop "audiobeam_process_signal.L3" { bound: 0 .. 371; }
+loop "audiobeam_process_signal.L4" { bound: 0 .. 1; }
+loop "audiobeam_process_signal.L5" { bound: 0 .. 15; }
+loop "audiobeam_process_signal.L6" { bound: 0 .. 3; }
+loop "audiobeam_process_signal.L7" { bound: 0 .. 1; }
+loop "audiobeam_process_signal.L8" { bound: 0 .. 15; }
+loop "audiobeam_process_signal.L9" { bound: 0 .. 13; }
+
+loop "audiobeam_calc_beamforming_result.L2" { bound: 0 .. 1; }
+loop "audiobeam_calc_beamforming_result.L3" { bound: 0 .. 1; }
+loop "audiobeam_calc_beamforming_result.L4" { bound: 0 .. 1; }
+loop "audiobeam_calc_beamforming_result.L5" { bound: 0 .. 1; }
+
+loop "audiobeam_calc_single_pos.L2" { bound: 0 .. 15; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8003b44.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8003b44.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x8003d2a.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8003d2a.L2" { bound: 0 .. inf; }
+
+loop "__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }

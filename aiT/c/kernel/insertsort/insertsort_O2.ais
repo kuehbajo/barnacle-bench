@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+# inner loop: seems to be split into 2 and suspect loop unrolling 4x times
+
+loop "insertsort_main.L2" { bound: 0 .. 3; }
+loop "insertsort_main.L3" { bound: 0 .. 3; }

@@ -1,0 +1,17 @@
+compiler: "arm-clang";
+
+loop "filterbank::filterbank_main.L6" { bound: 32 .. 32; }
+loop "filterbank::filterbank_main.L7" { bound: 2 .. 2; }
+loop "filterbank::filterbank_main.L8" { bound: 8 .. 8; }
+
+loop "filterbank::filterbank_core.L1" { bound: 8 .. 8; }
+loop "filterbank::filterbank_core.L6" { bound: 256 .. 256; }
+loop "filterbank::filterbank_core.L7" { bound: 32 .. 32; }
+loop "filterbank::filterbank_core.L8" { bound: 32 .. 32; }
+loop "filterbank::filterbank_core.L9" { bound: 256 .. 256; }
+loop "filterbank::filterbank_core.L10" { bound: 256 .. 256; }
+
+loop "<[T] as core::slice::specialize::SpecFill<T>>::spec_fill<f32>.L1" { bound: 256 .. 256; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

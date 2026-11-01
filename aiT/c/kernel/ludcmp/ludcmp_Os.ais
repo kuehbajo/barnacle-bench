@@ -1,0 +1,11 @@
+compiler: "arm-clang";
+
+loop "ludcmp_test.L5" { bound: 0 .. 5; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001a18.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001a18.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001bfe.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001bfe.L2" { bound: 0 .. inf; }

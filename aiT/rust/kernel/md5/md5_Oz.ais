@@ -1,0 +1,13 @@
+compiler: "arm-clang";
+
+loop "md5::md5_main.L1" { bound: 0 .. 10; }
+loop "md5::md5_main.L2" { bound: 0 .. 256; }
+loop "md5::md5_main.L3" { bound: 0 .. 16; }
+loop "md5::md5_main.L4" { bound: 0 .. 64; } # -> some sort of iter funcs in Random::update -> best efforts
+loop "md5::md5_main.L5" { bound: 0 .. 64; } # -> some sort of iter funcs in Random::update -> best efforts
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; } # -> called in aeabi_memcopy -> md5_update -> copy_from_slice -> use default as unclear
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; } # -> called in aeabi_memcopy -> md5_update -> copy_from_slice -> use default as unclear
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

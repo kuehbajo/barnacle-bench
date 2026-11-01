@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+loop "cjpeg_wrbmp_finish_output_bmp.L1" { bound: 30 .. 30; }
+
+loop "cjpeg_wrbmp_write_colormap.L1" { bound: 256 .. 256; }
+loop "cjpeg_wrbmp_write_colormap.L2" { bound: 256 .. 256; }
+loop "cjpeg_wrbmp_write_colormap.L3" { bound: 256 .. 256; }
+loop "cjpeg_wrbmp_write_colormap.L4" { bound: 512 .. 512; }

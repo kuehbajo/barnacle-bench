@@ -1,0 +1,10 @@
+compiler: "arm-clang";
+
+loop "ndes::ndes_main.L2" { bound: 0 .. 16; }
+loop "ndes::ndes_main.L3" { bound: 0 .. 16; }
+loop "ndes::ndes_main.L5" { bound: 0 .. 16; }
+loop "ndes::ndes_main.L7" { bound: 0 .. 8; }
+loop "ndes::ndes_main.L8" { bound: 0 .. 32; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

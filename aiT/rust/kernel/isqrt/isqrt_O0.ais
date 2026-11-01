@@ -1,0 +1,4 @@
+compiler: "arm-clang";
+
+loop "isqrt::isqrt_main.L1" { bound: 1000 .. 1000; }
+loop "isqrt::isqrt_usqrt.L1" { bound: 32 .. 32; }

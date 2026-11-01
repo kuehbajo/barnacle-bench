@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+loop "md5::Random::init.L1" { bound: 0 .. 256; }
+loop "md5::Random::init.L3" { bound: 0 .. 16; }
+loop "md5::Random::init.L4" { bound: 0 .. 64; } # -> some sort of iter funcs in Random::update -> best efforts
+loop "md5::Random::init.L5" { bound: 0 .. 64; } # -> some sort of iter funcs in Random::update -> best efforts
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

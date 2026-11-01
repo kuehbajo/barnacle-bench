@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "lms::lms_main.L3" { bound: 201 .. 201; }
+
+loop "lms::lms_calc.L1" { bound: 21 .. 21; }
+loop "lms::lms_calc.L2" { bound: 21 .. 21; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

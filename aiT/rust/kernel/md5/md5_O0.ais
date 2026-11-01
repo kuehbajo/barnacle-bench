@@ -1,0 +1,33 @@
+compiler: "arm-clang";
+
+loop "md5::md5_main.L1" { bound: 10 .. 10; }
+
+loop "md5::Random::init.L1" { bound: 256 .. 256; }
+
+loop "md5::Random::update.L1" { bound: 16 .. 16; }
+
+loop "md5::md5_update.L1" { bound: 0 .. 0; } # -> bound as found in original
+
+loop "md5::md5_decode.L1" { bound: 16 .. 16; }
+
+loop "md5::md5_encode.L1" { bound: 2 .. 16; }
+
+loop "<[u32] as core::slice::specialize::SpecFill<u32>>::spec_fill(&mut [u32], u32).L1" { bound: 0 .. 16; } # -> refers to zeroize x in md5_transform -> use size as bounds
+
+loop "<core::iter::adapters::zip::Zip<A,B> as core::iter::adapters::zip::ZipImpl<A,B>>::next_back<core::slice::iter::IterMut<u8>, core::iter::adapters::take::Take<core::slice::iter::Iter<u8>>>.L1" {
+    bound: 4 .. 4;
+} # -> appears in Random::update -> assume that it is the shrinking of size 64 to loopbound 16 -> 64 / 16 = 4
+loop "<core::iter::adapters::zip::Zip<A,B> as core::iter::adapters::zip::ZipImpl<A,B>>::next_back<core::slice::iter::IterMut<u8>, core::iter::adapters::take::Take<core::slice::iter::Iter<u8>>>.L2" {
+    bound: 4 .. 4;
+} # -> appears in Random::update -> assume that it is the shrinking of size 64 to loopbound 16 -> 64 / 16 = 4
+
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L1" { bound: 0 .. inf; } # -> zeroes Context or copies state var to Context -> use size of Context as unclear
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L2" { bound: 0 .. inf; } # -> zeroes Context or copies state var to Context -> use size of Context as unclear
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; } # -> called in aeabi_memcopy -> new Context / copy from slice -> use default (see L2)
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; } # -> called in aeabi_memcopy -> new Context / copy from slice -> use size of Context contradicts -> use default as unclear
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; } # -> called in aeabi_memcopy -> new Context / copy from slice -> use default (see L2)
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; } # -> called in aeabi_memcopy -> new Context / copy from slice -> use default (see L2)
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

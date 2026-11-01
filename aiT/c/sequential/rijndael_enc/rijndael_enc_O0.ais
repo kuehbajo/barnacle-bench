@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+loop "rijndael_enc_encfile.L1" { bound: 1960 .. 1960; }
+
+loop "rijndael_enc_fread.L1" { bound: 10 .. 16; }

@@ -1,0 +1,27 @@
+compiler: "arm-clang";
+
+routine "quicksort_custom::quicksort_sort<&core::ffi::c_str::CStr>" { recursion bound: 1 .. 521; }
+
+loop "quicksort_custom::quicksort_sort<&core::ffi::c_str::CStr>.L1" { bound: 0 .. 8; }
+loop "quicksort_custom::quicksort_sort<&core::ffi::c_str::CStr>.L2" { bound: 0 .. 169; }
+loop "quicksort_custom::quicksort_sort<&core::ffi::c_str::CStr>.L3" { bound: 1 .. 23; }
+
+routine "quicksort_custom::quicksort_sort<quicksort_custom::Vertex3D>" { recursion bound: 1 .. 650; }
+
+loop "quicksort_custom::quicksort_sort<quicksort_custom::Vertex3D>.L1" { bound: 0 .. 15; }
+loop "quicksort_custom::quicksort_sort<quicksort_custom::Vertex3D>.L2" { bound: 1 .. 250; }
+loop "quicksort_custom::quicksort_sort<quicksort_custom::Vertex3D>.L3" { bound: 1 .. 27; }
+
+loop "compiler_builtins::mem::memcmp::memcmp.L1" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memmove.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L4" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L5" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L6" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L7" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L8" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

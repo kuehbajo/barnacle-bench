@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times + loop split for odd / even
+
+loop "dijkstra_find.L2" { bound: 0 .. 250; }
+loop "dijkstra_find.L3" { bound: 0 .. 1000; }
+loop "dijkstra_find.L5" { bound: 0 .. 250; }
+loop "dijkstra_find.L6" { bound: 0 .. 250; }

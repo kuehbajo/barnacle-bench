@@ -1,0 +1,15 @@
+compiler: "arm-clang";
+
+# "Decoding inside a known code hole" warning
+# seems to be independent of anootated bounds
+
+loop "statemate::statemate_FH_DU.L1" { bound: 100 .. 100; }
+
+loop "statemate::statemate_generic_FH_TUERMODUL_CTRL.L1" { bound: 0 .. 1; }
+loop "statemate::statemate_generic_FH_TUERMODUL_CTRL.L2" { bound: 0 .. 1; }
+
+# nested match seems to be irreducible loop
+routine "statemate::statemate_generic_FH_TUERMODUL_CTRL" { irreducible bound: 0 .. 1; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

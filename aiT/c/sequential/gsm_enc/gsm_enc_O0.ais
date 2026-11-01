@@ -1,0 +1,45 @@
+compiler: "arm-clang";
+
+loop "gsm_enc_Gsm_Coder.L1" { bound: 4 .. 4; }
+loop "gsm_enc_Gsm_Coder.L2" { bound: 40 .. 40; }
+
+loop "gsm_enc_APCM_quantization_xmaxc_to_exp_mant.L1" { bound: 0 .. 3; }
+
+loop "gsm_enc_APCM_quantization.L3" { bound: 13 .. 13; }
+
+loop "gsm_enc_RPE_grid_positioning.L1" { bound: 12 .. 12; }
+loop "gsm_enc_RPE_grid_positioning.L2" { bound: 0 .. 3; }
+
+loop "gsm_enc_Long_term_analysis_filtering.L1" { bound: 40 .. 40; }
+loop "gsm_enc_Long_term_analysis_filtering.L2" { bound: 40 .. 40; }
+loop "gsm_enc_Long_term_analysis_filtering.L3" { bound: 40 .. 40; }
+loop "gsm_enc_Long_term_analysis_filtering.L4" { bound: 40 .. 40; }
+
+loop "gsm_enc_Coefficients_13_26.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc_Coefficients_27_39.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc_Coefficients_40_159.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc_LARp_to_rp.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc_Short_term_analysis_filtering.L1" { bound: 13 .. 120; }
+loop "gsm_enc_Short_term_analysis_filtering.L2" { bound: 8 .. 8; }
+
+loop "gsm_enc_Autocorrelation.L2" { bound: 160 .. 160; }
+loop "gsm_enc_Autocorrelation.L3" { bound: 160 .. 160; }
+loop "gsm_enc_Autocorrelation.L4" { bound: 160 .. 160; }
+loop "gsm_enc_Autocorrelation.L5" { bound: 160 .. 160; }
+loop "gsm_enc_Autocorrelation.L6" { bound: 9 .. 9; }
+loop "gsm_enc_Autocorrelation.L7" { bound: 152 .. 152; }
+loop "gsm_enc_Autocorrelation.L8" { bound: 9 .. 9; }
+loop "gsm_enc_Autocorrelation.L9" { bound: 160 .. 160; }
+
+loop "gsm_enc_Reflection_coefficients.L1" { bound: 8 .. 8; }
+loop "gsm_enc_Reflection_coefficients.L5" { bound: 8 .. 8; }
+loop "gsm_enc_Reflection_coefficients.L6" { bound: 1 .. 8; }
+loop "gsm_enc_Reflection_coefficients.L7" { bound: 1 .. 7; }
+
+loop "gsm_enc_Transformation_to_Log_Area_Ratios.L1" { bound: 8 .. 8; }
+
+loop "gsm_enc_main.L1" { bound: 20 .. 20; }

@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+loop "mpeg2_fullsearch.L2" { bound: 0 .. 56; }
+
+loop "mpeg2_main.L1" { bound: 0 .. 8; }
+loop "mpeg2_main.L2" { bound: 0 .. 11; }

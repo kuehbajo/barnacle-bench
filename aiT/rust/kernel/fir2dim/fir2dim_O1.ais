@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+loop "fir2dim::fir2dim_main.L1" { bound: 0 .. 4; }
+loop "fir2dim::fir2dim_main.L3" { bound: 0 .. 4; }
+loop "fir2dim::fir2dim_main.L4" { bound: 0 .. 9; }
+

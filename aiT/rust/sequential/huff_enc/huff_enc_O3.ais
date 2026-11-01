@@ -1,0 +1,19 @@
+compiler: "arm-clang";
+
+loop "huff_enc::quicksort::sorts.L1" { bound: 0 .. 7; }
+loop "huff_enc::quicksort::sorts.L2" { bound: 0 .. 109; }
+loop "huff_enc::quicksort::sorts.L3" { bound: 0 .. 19; }
+loop "huff_enc::quicksort::sorts.L4" { bound: 0 .. 25; }
+
+loop "huff_enc::huff_enc_main.L7" { bound: 0 .. 256; }
+loop "huff_enc::huff_enc_main.L8" { bound: 0 .. 256; }
+loop "huff_enc::huff_enc_main.L9" { bound: 0 .. 257; }
+loop "huff_enc::huff_enc_main.L10" { bound: 0 .. 9; }
+loop "huff_enc::huff_enc_main.L12" { bound: 0 .. 9; }
+loop "huff_enc::huff_enc_main.L13" { bound: 0 .. 9; }
+
+routine "huff_enc::huff_enc_encode_codes_table" { recursion bound: 0 .. 77; }
+routine "huff_enc::quicksort::sorts" { recursion bound: 0 .. 648; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

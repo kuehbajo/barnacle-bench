@@ -1,0 +1,20 @@
+compiler: "arm-clang";
+
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L1" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L2" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L3" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L4" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L5" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L6" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L7" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L8" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L9" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L10" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L11" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L12" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L13" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L14" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L15" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L16" { bound: 0 .. 4; } # -> unclear -> default value
+
+#routine "libm::math::rem_pio2_large::rem_pio2_large" { irreducible bound: 0 .. 4; } # -> unclear -> default value

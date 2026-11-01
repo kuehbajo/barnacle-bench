@@ -1,0 +1,93 @@
+compiler: "arm-clang";
+
+loop "ammunition_bits_test.L13" { bound: 59 .. 59; }
+loop "ammunition_bits_test.L14" { bound: 59 .. 59; }
+
+loop "ammunition_arithm_test.L1" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L2" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L3" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L4" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L5" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L6" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L7" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L8" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L9" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L10" { bound: 4000 .. 4000; }
+loop "ammunition_arithm_test.L11" { bound: 4000 .. 4000; }
+
+loop "ammunition_memcpy.L1" { bound: 2 .. 6; }
+
+loop "ammunition_memset.L1" { bound: 0 .. 4; }
+
+loop "ammunition_memcmp.L1" { bound: 0 .. 4; }
+
+loop "ammunition_memmove.L1" { bound: 0 .. 4; }
+loop "ammunition_memmove.L2" { bound: 0 .. 4; }
+
+loop "ammunition_strcmp.L1" { bound: 1 .. 11; }
+
+loop "ammunition_atoi.L1" { bound: 1 .. 7; }
+
+loop "ammunition_sprintf_d.L1" { bound: 1 .. 10; }
+loop "ammunition_sprintf_d.L2" { bound: 1 .. 10; }
+
+loop "ammunition_sprintf_u.L1" { bound: 1 .. 10; }
+loop "ammunition_sprintf_u.L2" { bound: 1 .. 10; }
+
+loop "ammunition_add_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition_subtract_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition_make_complementary_code.L1" { bound: 2 .. 6; }
+
+loop "ammunition_multiply_unsigned_integer_by_digit_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition_multiply_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+loop "ammunition_multiply_unsigned_integer_without_overflow_reaction.L2" { bound: 4 .. 4; }
+loop "ammunition_multiply_unsigned_integer_without_overflow_reaction.L3" { bound: 0 .. 4; }
+
+loop "ammunition_divide_unsigned_integer_without_overflow_reaction.L1" { bound: 3 .. 4; }
+loop "ammunition_divide_unsigned_integer_without_overflow_reaction.L2" { bound: 4 .. 4; }
+loop "ammunition_divide_unsigned_integer_without_overflow_reaction.L3" { bound: 0 .. inf; } # use default as aiT infers higher bound
+loop "ammunition_divide_unsigned_integer_without_overflow_reaction.L4" { bound: 0 .. inf; } # use default as aiT infers higher bound
+
+loop "ammunition_unsigned_integer_shift_right.L1" { bound: 0 .. 2; }
+loop "ammunition_unsigned_integer_shift_right.L2" { bound: 3 .. 3; }
+
+loop "ammunition_unsigned_integer_shift_left.L1" { bound: 0 .. 2; }
+loop "ammunition_unsigned_integer_shift_left.L2" { bound: 2 .. 3; }
+
+loop "ammunition_integer_shift_right.L1" { bound: 0 .. 2; }
+loop "ammunition_integer_shift_right.L2" { bound: 2 .. 3; }
+
+loop "ammunition_integer_shift_left.L1" { bound: 0 .. 2; }
+loop "ammunition_integer_shift_left.L2" { bound: 3 .. 3; }
+
+loop "ammunition_integer_or.L1" { bound: 4 .. 4; }
+
+loop "ammunition_integer_and.L1" { bound: 4 .. 4; }
+
+loop "ammunition_integer_not.L1" { bound: 4 .. 4; }
+
+loop "ammunition_bytes_comparison.L1" { bound: 1 .. 4; }
+
+loop "ammunition_change_unsigned_integer_size.L1" { bound: 1 .. 2; }
+
+loop "ammunition_change_integer_size.L1" { bound: 2 .. 2; }
+
+loop "ammunition_unsigned_integer_to_based_string.L1" { bound: 1 .. 10; }
+loop "ammunition_unsigned_integer_to_based_string.L2" { bound: 2 .. 6; }
+loop "ammunition_unsigned_integer_to_based_string.L3" { bound: 0 .. 5; }
+
+loop "ammunition_add_digit_to_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition_string_to_unsigned_integer_without_overflow_reaction.L1" { bound: 1 .. 10; }
+
+loop "ammunition_unsigned_integer_from_string.L1" { bound: 0 .. 0; }
+
+loop "ammunition_integer_from_string.L1" { bound: 0 .. 0; }
+
+loop "ammunition_bit_string_comparison.L1" { bound: 0 .. 7; }
+
+routine "ammunition_unsigned_integer_shift_right" { recursion bound: 0 .. 1; }
+routine "ammunition_integer_shift_right" { recursion bound: 0 .. 1; }

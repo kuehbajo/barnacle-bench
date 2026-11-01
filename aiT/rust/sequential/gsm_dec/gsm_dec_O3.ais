@@ -1,0 +1,19 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "gsm_dec::gsm_dec_main.L1" { bound: 0 .. 20; }
+loop "gsm_dec::gsm_dec_main.L3" { bound: 0 .. 3; }
+loop "gsm_dec::gsm_dec_main.L5" { bound: 0 .. 30; }
+
+loop "compiler_builtins::mem::memmove.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L4" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L5" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L6" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L7" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L8" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

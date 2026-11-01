@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "bitcount_bit_count.L1" { bound: 0 .. 8; }
+
+# replaced recursion via iterative solution -> use recursion count as loopbounds
+loop "bitcount_ntbl_bitcnt.L1" { bound: 0 .. 8; }
+loop "bitcount_btbl_bitcnt.L1" { bound: 0 .. 4; }
+
+loop "bitcount_main.L2" { bound: 0 .. 10; }

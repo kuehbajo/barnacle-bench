@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "rijndael_dec_set_key.L1" { bound: 0 .. 0; }
+
+loop "rijndael_dec_decfile.L1" { bound: 0 .. 2046; }
+
+loop "rijndael_dec_fread.L1" { bound: 0 .. 4; }

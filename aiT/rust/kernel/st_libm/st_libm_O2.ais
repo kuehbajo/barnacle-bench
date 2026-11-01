@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "st_libm::st_main.L1" { bound: 0 .. 250; }
+loop "st_libm::st_main.L2" { bound: 0 .. 250; }
+loop "st_libm::st_main.L3" { bound: 0 .. 250; }
+loop "st_libm::st_main.L4" { bound: 0 .. 250; }
+loop "st_libm::st_main.L5" { bound: 0 .. 250; }

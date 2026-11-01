@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "cubic_custom::cubic_main.L2" { bound: 0 .. 7; }
+
+loop "cubic_custom::cubic_main.L1" { irreducible bound: 0 .. 5; }
+loop "cubic_custom::cubic_main.L2" { irreducible bound: 0 .. 5; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

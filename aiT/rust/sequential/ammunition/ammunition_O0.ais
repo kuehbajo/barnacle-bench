@@ -1,0 +1,128 @@
+compiler: "arm-clang";
+
+# bits
+loop "ammunition::bits::ammunition_bit_string_set.L1" { bound: 0 .. 8; }
+
+# gemeral
+loop "ammunition::general::ammunition_atoi.L1" { bound: 1 .. 7; }
+
+loop "ammunition::general::ammunition_strcmp.L1" { bound: 1 .. 11; }
+
+loop "ammunition::general::ammunition_sprintf_d.L1" { bound: 1 .. 10; }
+loop "ammunition::general::ammunition_sprintf_d.L2" { bound: 1 .. 10; }
+
+loop "ammunition::general::ammunition_sprintf_u.L1" { bound: 1 .. 10; }
+loop "ammunition::general::ammunition_sprintf_u.L2" { bound: 1 .. 10; }
+
+# origin: arithm::memcpy -> safety check
+# max: size parameter -> max 6
+loop "<core::ops::index_range::IndexRange as core::iter::traits::iterator::Iterator>::try_fold<usize, core::array::iter::iter_inner::{impl#8}::try_fold::{closure_env#0}<usize, usize, core::ops::try_trait::{impl#2}::wrap_mut_2::{closure_env#0}<usize, usize, usize, core::iter::traits::iterator::Iterator::min_by::fold::{closure_env#0}<usize, fn(&usize, &usize) -> core::cmp::Ordering>>, core::ops::try_trait::NeverShortCircuit<usize>>, core::ops::try_trait::NeverShortCircuit<usize>>.L1" {
+    bound: 0 .. 6;
+}
+
+# arithm
+loop "ammunition::arithm::ammunition_bytes_comparison.L1" { bound: 1 .. 4; }
+
+loop "ammunition::arithm::ammunition_integer_or.L1" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_add_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_integer_and.L1" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_integer_not.L1" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_make_complementary_code.L1" { bound: 2 .. 6; }
+
+loop "ammunition::arithm::ammunition_divide_unsigned_integer_without_overflow_reaction.L1" { bound: 3 .. 4; }
+loop "ammunition::arithm::ammunition_divide_unsigned_integer_without_overflow_reaction.L2" { bound: 0 .. 0; }
+loop "ammunition::arithm::ammunition_divide_unsigned_integer_without_overflow_reaction.L3" { bound: 0 .. 0; }
+loop "ammunition::arithm::ammunition_divide_unsigned_integer_without_overflow_reaction.L4" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::memcpy.L1" { bound: 2 .. 6; }
+
+loop "ammunition::arithm::ammunition_multiply_unsigned_integer_by_digit_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_subtract_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_multiply_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+loop "ammunition::arithm::ammunition_multiply_unsigned_integer_without_overflow_reaction.L2" { bound: 0 .. 4; }
+loop "ammunition::arithm::ammunition_multiply_unsigned_integer_without_overflow_reaction.L3" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_unsigned_integer_to_based_string.L1" { bound: 1 .. 10; }
+loop "ammunition::arithm::ammunition_unsigned_integer_to_based_string.L2" { bound: 2 .. 6; }
+loop "ammunition::arithm::ammunition_unsigned_integer_to_based_string.L3" { bound: 0 .. 5; }
+
+loop "ammunition::arithm::ammunition_integer_shift_left.L1" { bound: 0 .. 2; }
+loop "ammunition::arithm::ammunition_integer_shift_left.L2" { bound: 2 .. 3; }
+
+loop "ammunition::arithm::ammunition_integer_shift_right.L1" { bound: 0 .. 2; }
+loop "ammunition::arithm::ammunition_integer_shift_right.L2" { bound: 3 .. 3; }
+
+loop "ammunition::arithm::ammunition_change_integer_size.L1" { bound: 2 .. 2; }
+
+loop "ammunition::arithm::ammunition_integer_from_string.L1" { bound: 0 .. 0; }
+
+loop "ammunition::arithm::ammunition_string_to_unsigned_integer_without_overflow_reaction.L1" { bound: 1 .. 10; }
+
+loop "ammunition::arithm::ammunition_add_digit_to_unsigned_integer_without_overflow_reaction.L1" { bound: 4 .. 4; }
+
+loop "ammunition::arithm::ammunition_unsigned_integer_shift_left.L1" { bound: 0 .. 2; }
+loop "ammunition::arithm::ammunition_unsigned_integer_shift_left.L2" { bound: 2 .. 3; }
+
+loop "ammunition::arithm::ammunition_unsigned_integer_shift_right.L1" { bound: 0 .. 2; }
+loop "ammunition::arithm::ammunition_unsigned_integer_shift_right.L2" { bound: 3 .. 3; }
+
+loop "ammunition::arithm::ammunition_change_unsigned_integer_size.L1" { bound: 1 .. 2; }
+
+loop "ammunition::arithm::ammunition_unsigned_integer_from_string.L1" { bound: 0 .. 0; }
+
+# main
+loop "ammunition::ammunition_bits_test.L1" { bound: 64 .. 64; }
+loop "ammunition::ammunition_bits_test.L2" { bound: 64 .. 64; }
+loop "ammunition::ammunition_bits_test.L14" { bound: 64 .. 64; }
+loop "ammunition::ammunition_bits_test.L3" { bound: 64 .. 64; }
+loop "ammunition::ammunition_bits_test.L4" { bound: 13 .. 13; }
+loop "ammunition::ammunition_bits_test.L5" { bound: 35 .. 35; }
+loop "ammunition::ammunition_bits_test.L6" { bound: 16 .. 16; }
+loop "ammunition::ammunition_bits_test.L8" { bound: 42 .. 42; }
+loop "ammunition::ammunition_bits_test.L9" { bound: 43 .. 43; }
+loop "ammunition::ammunition_bits_test.L10" { bound: 43 .. 43; }
+
+loop "ammunition::ammunition_arithm_test.L1" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L2" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L3" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L4" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L5" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L6" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L7" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L8" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L9" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L10" { bound: 4000 .. 4000; }
+loop "ammunition::ammunition_arithm_test.L11" { bound: 4000 .. 4000; }
+
+loop "ammunition::ammunition_reset_str_arithm.L1" { bound: 20 .. 20; }
+loop "ammunition::ammunition_reset_str_arithm.L2" { bound: 4 .. 4; }
+loop "ammunition::ammunition_reset_str_arithm.L3" { bound: 6 .. 6; }
+
+loop "ammunition::ammunition_reset_str_bits.L1" { bound: 8 .. 8; }
+
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+loop "compiler_builtins::int::specialized_div_rem::u64_div_rem.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::int::specialized_div_rem::u64_div_rem.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::int::specialized_div_rem::u64_div_rem.L3" { bound: 0 .. inf; }
+
+routine "ammunition::arithm::ammunition_integer_shift_right" { recursion bound: 0 .. 1; }
+routine "ammunition::arithm::ammunition_unsigned_integer_shift_right" { recursion bound: 0 .. 1; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

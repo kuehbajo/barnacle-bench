@@ -1,0 +1,58 @@
+compiler: "arm-clang";
+
+loop "audiobeam::audiobeam_parse_line.L1" { bound: 15 .. 15; }
+
+loop "audiobeam::audiobeam_calc_delays.L1" { bound: 15 .. 15; }
+
+loop "audiobeam::audiobeam_adjust_delays.L2" { bound: 15 .. 15; }
+
+loop "audiobeam::audiobeam_calc_distances.L1" { bound: 15 .. 15; }
+
+loop "audiobeam::audiobeam_do_beamforming.L1" { bound: 15 .. 15; }
+
+loop "audiobeam::audiobeam_process_signal.L2" { bound: 13 .. 13; }
+loop "audiobeam::audiobeam_process_signal.L3" { bound: 372 .. 372; }
+loop "audiobeam::audiobeam_process_signal.L4" { bound: 1 .. 1; }
+
+loop "audiobeam::audiobeam_calculate_energy.L1" { bound: 0 .. 0; }
+
+loop "audiobeam::audiobeam_preprocess_delays.L1" { bound: 15 .. 15; }
+
+loop "audiobeam::audiobeam_calc_weights_left_only.L1" { bound: 15 .. 15; }
+
+loop "audiobeam::audiobeam_calc_beamforming_result.L1" { bound: 1 .. 1; }
+
+# specified bound min 0 max 0 creates warning -> use default
+loop "audiobeam::math::sqrtf.L1" { bound: 0 .. inf; }
+
+loop "audiobeam::DataQueue::init.L1" { bound: 15 .. 15; }
+loop "audiobeam::DataQueue::init.L2" { bound: 15 .. 15; }
+
+# for the iterators the presumed max of the iterator is used
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, f32, core::iter::adapters::copied::copy_fold::{closure_env#0}<f32, f32, core::iter::adapters::filter::filter_fold::{closure_env#0}<f32, f32, audiobeam::audiobeam_find_min_in_arr::{closure_env#0}, core::iter::traits::iterator::Iterator::min_by::fold::{closure_env#0}<f32, audiobeam::audiobeam_find_min_in_arr::{closure_env#1}>>>>.L1" {
+    bound: 0 .. 15; # min_by
+}
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, f32, core::iter::adapters::copied::copy_fold::{closure_env#0}<f32, f32, core::iter::adapters::filter::filter_fold::{closure_env#0}<f32, f32, audiobeam::audiobeam_find_max_in_arr::{closure_env#0}, core::iter::traits::iterator::Iterator::max_by::fold::{closure_env#0}<f32, audiobeam::audiobeam_find_max_in_arr::{closure_env#1}>>>>.L1" {
+    bound: 0 .. 15; # max_by
+}
+loop "core::iter::traits::iterator::Iterator::try_fold<core::slice::iter::Iter<f32>, (), core::iter::adapters::copied::copy_try_fold::{closure_env#0}<f32, (), core::ops::control_flow::ControlFlow<f32, ()>, core::iter::traits::iterator::Iterator::find::check::{closure_env#0}<f32, &mut audiobeam::audiobeam_find_min_in_arr::{closure_env#0}>>, core::ops::control_flow::ControlFlow<f32, ()>>.L1" {
+    bound: 0 .. 15; # min_by
+}
+loop "core::iter::traits::iterator::Iterator::try_fold<core::slice::iter::Iter<f32>, (), core::iter::adapters::copied::copy_try_fold::{closure_env#0}<f32, (), core::ops::control_flow::ControlFlow<f32, ()>, core::iter::traits::iterator::Iterator::find::check::{closure_env#0}<f32, &mut audiobeam::audiobeam_find_max_in_arr::{closure_env#0}>>, core::ops::control_flow::ControlFlow<f32, ()>>.L1" {
+    bound: 0 .. 15; # max_by
+}
+loop "core::iter::traits::iterator::Iterator::fold<core::slice::iter::ChunksExact<u8>, (), core::iter::adapters::enumerate::{impl#1}::fold::enumerate::{closure_env#0}<&[u8], (), core::iter::traits::iterator::Iterator::for_each::call::{closure_env#0}<(usize, &[u8]), audiobeam::audiobeam_adjust_delays::{closure_env#0}>>>.L1" {
+    bound: 0 .. 15; # delays_val_bytes from delays_f iterator in adjust_delays
+}
+loop "core::iter::traits::iterator::Iterator::fold<core::slice::iter::ChunksExact<u8>, (), core::iter::adapters::enumerate::{impl#1}::fold::enumerate::{closure_env#0}<&[u8], (), core::iter::traits::iterator::Iterator::for_each::call::{closure_env#0}<(usize, &[u8]), audiobeam::audiobeam_calc_single_pos::{closure_env#0}>>>.L1" {
+    bound: 0 .. 15; # delays_val_bytes from delays_f iterator in calc_single_pos
+}
+
+# for the compiler builtins default bounds are used
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

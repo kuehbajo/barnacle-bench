@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "fir2dim_main.L6" { bound: 0 .. 4; }

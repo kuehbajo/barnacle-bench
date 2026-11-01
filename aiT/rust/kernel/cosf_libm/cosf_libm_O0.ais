@@ -1,0 +1,27 @@
+compiler: "arm-clang";
+
+loop "cosf_libm::cosf_main.L1" { bound: 100 .. 100; }
+
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L4" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L5" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L6" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L7" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L8" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L9" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L10" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L11" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L12" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L13" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L14" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L15" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L16" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L17" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L18" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L19" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L20" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L21" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L22" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::rem_pio2_large::rem_pio2_large.L23" { bound: 0 .. 4; } # -> unclear -> default value
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

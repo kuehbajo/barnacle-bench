@@ -1,0 +1,23 @@
+compiler: "arm-clang";
+
+loop "cubic_libm::cubic_main.L1" { bound: 5 .. 5; }
+loop "cubic_libm::cubic_main.L2" { bound: 5 .. 5; }
+loop "cubic_libm::cubic_main.L3" { bound: 7 .. 7; }
+loop "cubic_libm::cubic_main.L4" { bound: 5 .. 5; }
+
+#loop "libm::math::sqrtf::sqrtf.L1" { bound: 0 .. 4; } # -> given loop for sqrtf contradicts aiT -> use default value
+
+# -> cubic_solve
+#loop "libm::math::cosf::cosf.L4" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L5" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L7" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L8" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L9" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L10" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L11" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L12" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L13" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L14" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L15" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L16" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "libm::math::cosf::cosf.L18" { bound: 0 .. 4; } # -> unclear -> default value

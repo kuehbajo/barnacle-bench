@@ -1,0 +1,21 @@
+compiler: "arm-clang";
+
+loop "sha_glibc_memcpy.L1" { bound: 0 .. 0; }
+loop "sha_glibc_memcpy.L2" { bound: 0 .. 7; }
+
+loop "sha_wordcopy_fwd_aligned.L1" { bound: 1 .. 2; }
+
+# the bounds given in the benchmark seem to be wrong -> aiT error
+# use default value for 2 bounds
+loop "sha_glibc_memset.L1" { bound: 0 .. inf; } # min 3 max 3
+loop "sha_glibc_memset.L2" { bound: 0 .. 1; }
+loop "sha_glibc_memset.L3" { bound: 0 .. inf; } # min 1 max 2
+loop "sha_glibc_memset.L4" { bound: 0 .. 0; }
+
+loop "sha_byte_reverse.L1" { bound: 16 .. 16; }
+
+loop "sha_fread.L1" { bound: 0 .. 8192; }
+
+loop "sha_update.L1" { bound: 0 .. 128; }
+
+loop "sha_stream.L1" { bound: 5 .. 5; }

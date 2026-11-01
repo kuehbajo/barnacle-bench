@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+loop "h264_dec_decode_one_macroblock.L1" { bound: 0 .. 2; }
+loop "h264_dec_decode_one_macroblock.L2" { bound: 0 .. 1; }
+loop "h264_dec_decode_one_macroblock.L3" { bound: 0 .. 4; }

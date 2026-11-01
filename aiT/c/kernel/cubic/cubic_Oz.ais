@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+# function outlining leads to "Path is infeasible after return" for wcclibm function basicmath___ieee754_rem_pio2f
+# this does not seem to be dependent on the annotated bounds
+
+loop "cubic_main.L1" { bound: 0 .. 5; }
+loop "cubic_main.L2" { bound: 0 .. 5; }
+loop "cubic_main.L3" { bound: 0 .. 7; }
+loop "cubic_main.L4" { bound: 0 .. 5; }
+
+# specified bound min 0 max 0 creates "seems to have more iterations than specified" warning -> use default
+loop "basicmath___ieee754_sqrtf.L2" { bound: 0 .. inf; }

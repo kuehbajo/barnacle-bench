@@ -1,0 +1,26 @@
+compiler: "arm-clang";
+
+loop "gsm_dec_LARp_to_rp.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec_Decoder.L1" { bound: 4 .. 4; }
+loop "gsm_dec_Decoder.L2" { bound: 40 .. 40; }
+
+loop "gsm_dec_Long_Term_Synthesis_Filtering.L1" { bound: 40 .. 40; }
+loop "gsm_dec_Long_Term_Synthesis_Filtering.L2" { bound: 120 .. 120; }
+
+loop "gsm_dec_Postprocessing.L1" { bound: 159 .. 159; }
+
+loop "gsm_dec_APCM_quantization_xmaxc_to_exp_mant.L1" { bound: 0 .. 3; }
+
+loop "gsm_dec_RPE_grid_positioning.L2" { bound: 0 .. 3; }
+
+loop "gsm_dec_Coefficients_13_26.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec_Coefficients_27_39.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec_Coefficients_40_159.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec_Short_term_synthesis_filtering.L1" { bound: 12 .. 119; }
+loop "gsm_dec_Short_term_synthesis_filtering.L2" { bound: 8 .. 8; }
+
+loop "gsm_dec_main.L1" { bound: 20 .. 20; }

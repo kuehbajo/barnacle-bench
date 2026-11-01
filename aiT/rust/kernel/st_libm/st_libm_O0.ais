@@ -1,0 +1,13 @@
+compiler: "arm-clang";
+
+loop "st_libm::st_lincorrcoeff.L1" { bound: 1000 .. 1000; }
+
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, f32, core::iter::traits::accum::{impl#130}::sum::{closure_env#0}<core::slice::iter::Iter<f32>>>.L1" {
+    bound: 1000 .. 1000;
+} # st_sum_mean
+
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, f32, core::iter::adapters::map::map_fold::{closure_env#0}<&f32, f32, f32, st_libm::st_var_stddev::{closure_env#0}, core::iter::traits::accum::{impl#128}::sum::{closure_env#0}<core::iter::adapters::map::Map<core::slice::iter::Iter<f32>, st_libm::st_var_stddev::{closure_env#0}>>>>.L1" {
+    bound: 1000 .. 1000;
+} # st_var_stddev
+
+loop "libm::math::generic::sqrt::goldschmidt.L1" { bound: 0 .. inf; }

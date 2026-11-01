@@ -1,0 +1,10 @@
+compiler: "arm-clang";
+
+loop "filterbank::filterbank_main.L3" { bound: 0 .. 2; }
+loop "filterbank::filterbank_main.L4" { bound: 0 .. 8; }
+loop "filterbank::filterbank_main.L6" { bound: 0 .. 32; }
+loop "filterbank::filterbank_main.L7" { bound: 0 .. 32; }
+loop "filterbank::filterbank_main.L10" { bound: 0 .. 32; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

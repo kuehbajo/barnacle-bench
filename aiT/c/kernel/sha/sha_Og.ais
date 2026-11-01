@@ -1,0 +1,10 @@
+compiler: "arm-clang";
+
+loop "sha_wordcopy_fwd_aligned.L1" { bound: 0 .. 2; }
+
+loop "sha_glibc_memset.L1" { bound: 0 .. 3; }
+loop "sha_glibc_memset.L2" { bound: 0 .. 1; }
+
+loop "sha_main.L1" { bound: 0 .. 5; }
+loop "sha_main.L2" { bound: 0 .. 8192; }
+

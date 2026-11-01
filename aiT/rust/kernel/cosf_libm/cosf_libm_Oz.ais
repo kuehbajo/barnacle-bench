@@ -1,0 +1,16 @@
+compiler: "arm-clang";
+
+#loop "cosf_libm::cosf_main.L1" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L5" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L6" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L8" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L9" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L10" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L11" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L12" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L13" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L14" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L15" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L16" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L17" { bound: 0 .. 4; } # -> unclear -> default value
+#loop "cosf_libm::cosf_main.L19" { bound: 0 .. 4; } # -> unclear -> default value

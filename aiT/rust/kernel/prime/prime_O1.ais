@@ -1,0 +1,4 @@
+compiler: "arm-clang";
+
+loop "prime::prime_main.L1" { bound: 0 .. 16; }
+loop "prime::prime_main.L2" { bound: 0 .. 16; }

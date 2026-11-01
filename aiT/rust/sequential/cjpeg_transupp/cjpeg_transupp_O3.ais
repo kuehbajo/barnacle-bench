@@ -1,0 +1,36 @@
+compiler: "arm-clang";
+
+# suspect loop splitting + remainder loops
+# -> hard to annotate
+
+# do_flip_v
+loop "cjpeg_transupp::cjpeg_transupp_main.L1" { bound: 0 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L2" { bound: 0 .. 10; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L3" { bound: 0 .. 8; }
+# do_rot_90
+loop "cjpeg_transupp::cjpeg_transupp_main.L5" { bound: 0 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L6" { bound: 0 .. 15; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L7" { bound: 0 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L8" { bound: 0 .. 10; }
+# do_rot_270
+loop "cjpeg_transupp::cjpeg_transupp_main.L9" { bound: 0 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L10" { bound: 0 .. 15; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L11" { bound: 0 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L12" { bound: 0 .. 10; }
+# do_rot_180
+loop "cjpeg_transupp::cjpeg_transupp_main.L13" { bound: 0 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L14" { bound: 0 .. 5; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L15" { bound: 0 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L16" { bound: 0 .. 28; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L17" { bound: 0 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L18" { bound: 0 .. 32; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L19" { bound: 0 .. 1; }
+# do_transverse
+loop "cjpeg_transupp::cjpeg_transupp_main.L20" { bound: 0 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L21" { bound: 0 .. 14; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L22" { bound: 0 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L23" { bound: 0 .. 10; }
+loop "cjpeg_transupp::cjpeg_transupp_main.L25" { bound: 0 .. 8; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,16 @@
+compiler: "arm-clang";
+
+# suspect first iteration peeled + loop unrolling 4x times
+
+# st_sqrtf
+loop "st_calc_LinCorrCoef.L2" { bound: 0 .. 4; }
+loop "st_calc_LinCorrCoef.L3" { bound: 0 .. 1; }
+# st_sqrtf
+loop "st_calc_LinCorrCoef.L4" { bound: 0 .. 4; }
+loop "st_calc_LinCorrCoef.L5" { bound: 0 .. 1; }
+# st_sqrtf
+loop "st_main.L3" { bound: 0 .. 4; }
+loop "st_main.L4" { bound: 0 .. 1; }
+# st_sqrtf
+loop "st_main.L7" { bound: 0 .. 4; }
+loop "st_main.L8" { bound: 0 .. 1; }

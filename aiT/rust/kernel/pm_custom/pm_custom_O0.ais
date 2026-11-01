@@ -1,0 +1,58 @@
+compiler: "arm-clang";
+
+loop "pm_custom::pm_kernel.L1" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L2" { bound: 21 .. 21; }
+loop "pm_custom::pm_kernel.L3" { bound: 60 .. 60; }
+loop "pm_custom::pm_kernel.L4" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L5" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L6" { bound: 21 .. 21; }
+loop "pm_custom::pm_kernel.L7" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L8" { bound: 21 .. 21; }
+loop "pm_custom::pm_kernel.L9" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L10" { bound: 21 .. 21; }
+loop "pm_custom::pm_kernel.L11" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L12" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L13" { bound: 64 .. 64; }
+loop "pm_custom::pm_kernel.L14" { bound: 53 .. 64; }
+
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, f32, core::iter::adapters::copied::copy_fold::{closure_env#0}<f32, f32, core::iter::traits::iterator::Iterator::min_by::fold::{closure_env#0}<f32, fn(&f32, &f32) -> core::cmp::Ordering>>>.L1" {
+    bound: 0 .. 20;
+} # -> min_by in pm_kernel.L3 -> minimum MSE for magnitude scaling -> min 0 max 20
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, f32, core::iter::adapters::copied::copy_fold::{closure_env#0}<f32, f32, core::iter::traits::iterator::Iterator::max_by::fold::{closure_env#0}<f32, fn(&f32, &f32) -> core::cmp::Ordering>>>.L1" {
+    bound: 0 .. 64;
+} # -> max_by in pm_kernel.L3 and pm_kernel -> min 0 max 64
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, (usize, &f32), core::iter::adapters::enumerate::{impl#1}::fold::enumerate::{closure_env#0}<&f32, (usize, &f32), core::iter::traits::iterator::Iterator::min_by::fold::{closure_env#0}<(usize, &f32), pm_custom::pm_kernel::{closure_env#4}>>>.L1" {
+    bound: 0 .. 20;
+} # -> min_by in pm_kernel.L3 -> min MSE index -> given bound min 0 max 20
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<f32, (usize, &f32), core::iter::adapters::enumerate::{impl#1}::fold::enumerate::{closure_env#0}<&f32, (usize, &f32), core::iter::traits::iterator::Iterator::min_by::fold::{closure_env#0}<(usize, &f32), pm_custom::pm_kernel::{closure_env#9}>>>.L1" {
+    bound: 0 .. 59;
+} # -> min_by in pm_kernel -> min MSE index -> given bound min 0 max 59
+
+loop "<core::iter::adapters::zip::Zip<A,B> as core::iter::adapters::zip::ZipImpl<A,B>>::fold<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>, f32, core::iter::adapters::map::map_fold::{closure_env#0}<(&f32, &f32), f32, f32, pm_custom::pm_kernel::{closure_env#0}, core::iter::adapters::map::map_fold::{closure_env#0}<f32, f32, f32, pm_custom::pm_kernel::{closure_env#1}, core::iter::traits::accum::{impl#128}::sum::{closure_env#0}<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>>, pm_custom::pm_kernel::{closure_env#0}>, pm_custom::pm_kernel::{closure_env#1}>>>>>.L1" {
+    bound: 0 .. 64;
+} # -> sum in pm_kernel.L8 -> weighted MSE -> given bound min 0 max 64
+loop "<core::iter::adapters::zip::Zip<A,B> as core::iter::adapters::zip::ZipImpl<A,B>>::fold<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>, f32, core::iter::adapters::map::map_fold::{closure_env#0}<(&f32, &f32), f32, f32, pm_custom::pm_kernel::{closure_env#2}, core::iter::adapters::map::map_fold::{closure_env#0}<f32, f32, f32, pm_custom::pm_kernel::{closure_env#3}, core::iter::traits::accum::{impl#128}::sum::{closure_env#0}<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>>, pm_custom::pm_kernel::{closure_env#2}>, pm_custom::pm_kernel::{closure_env#3}>>>>>.L1" {
+    bound: 0 .. 64;
+} # -> sum in pm_kernel.L6 -> weighted MSE -> given bound min 0 max 64
+loop "<core::iter::adapters::zip::Zip<A,B> as core::iter::adapters::zip::ZipImpl<A,B>>::fold<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>, f32, core::iter::adapters::map::map_fold::{closure_env#0}<(&f32, &f32), f32, f32, pm_custom::pm_kernel::{closure_env#5}, core::iter::adapters::map::map_fold::{closure_env#0}<f32, f32, f32, pm_custom::pm_kernel::{closure_env#6}, core::iter::traits::accum::{impl#128}::sum::{closure_env#0}<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>>, pm_custom::pm_kernel::{closure_env#5}>, pm_custom::pm_kernel::{closure_env#6}>>>>>.L1" {
+    bound: 0 .. 64;
+} # -> sum in pm_kernel.L10 -> weighted MSE -> given bound min 0 max 64
+loop "<core::iter::adapters::zip::Zip<A,B> as core::iter::adapters::zip::ZipImpl<A,B>>::fold<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>, f32, core::iter::adapters::map::map_fold::{closure_env#0}<(&f32, &f32), f32, f32, pm_custom::pm_kernel::{closure_env#7}, core::iter::adapters::map::map_fold::{closure_env#0}<f32, f32, f32, pm_custom::pm_kernel::{closure_env#8}, core::iter::traits::accum::{impl#128}::sum::{closure_env#0}<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::zip::Zip<core::slice::iter::Iter<f32>, core::slice::iter::Iter<f32>>, pm_custom::pm_kernel::{closure_env#7}>, pm_custom::pm_kernel::{closure_env#8}>>>>>.L1" {
+    bound: 0 .. 64;
+} # -> sum in pm_kernel.L3 -> weighted MSE -> given bound min 0 max 64
+
+loop "<[T] as core::slice::specialize::SpecFill<T>>::spec_fill<f32>.L1" { bound: 64 .. 64; } # -> pm_kernel -> used on matrix of size (64, 60) -> min 64 max 64
+
+loop "compiler_builtins::arm::__aeabi_memcpy4::__aeabi_memcpy4.L1" { bound: 0 .. inf; }
+
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,41 @@
+compiler: "arm-clang";
+
+loop "audiobeam_parse_line.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_find_max_in_arr.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_find_min_in_arr.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_init_data_queue.L1" { bound: 15 .. 15; }
+loop "audiobeam_init_data_queue.L2" { bound: 15 .. 15; }
+
+loop "audiobeam_init_delays.L1" { bound: 1 .. 1; }
+
+loop "audiobeam_calc_distances.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_calc_delays.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_adjust_delays.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_calc_weights_left_only.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_calculate_energy.L1" { bound: 0 .. 0; }
+
+loop "audiobeam_do_beamforming.L1" { bound: 15 .. 15; }
+
+loop "audiobeam_process_signal.L1" { bound: 13 .. 13; }
+loop "audiobeam_process_signal.L2" { bound: 371 .. 371; }
+loop "audiobeam_process_signal.L3" { bound: 1 .. 1; }
+
+loop "audiobeam_calc_beamforming_result.L1" { bound: 1 .. 1; }
+
+# specified bound min 0 max 0 creates "seems to have more iterations than specified" warning -> use default
+loop "audiobeam___ieee754_sqrtf.L1" { bound: 0 .. inf; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8003024.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8003024.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x800320a.L1" { bound: 0 .. inf;}
+loop ":Anon_0x800320a.L2" { bound: 0 .. inf;}

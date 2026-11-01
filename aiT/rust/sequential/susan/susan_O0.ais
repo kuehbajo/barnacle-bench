@@ -1,0 +1,120 @@
+compiler: "arm-clang";
+
+loop "susan::file::File::read_line.L1" { bound: 57 .. 57; }
+
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<u8, &u8, core::iter::traits::iterator::Iterator::min_by::fold::{closure_env#0}<&u8, fn(&&u8, &&u8) -> core::cmp::Ordering>>.L1" {
+    bound: 0 .. 0;
+}
+
+loop "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold<u8, &u8, core::iter::traits::iterator::Iterator::max_by::fold::{closure_env#0}<&u8, fn(&&u8, &&u8) -> core::cmp::Ordering>>.L1" {
+    bound: 0 .. 0;
+}
+
+loop "susan::susan_setup_brightness_lut.L1" { bound: 513 .. 513; }
+
+loop "susan::susan_smoothing.L1" { bound: 15 .. 15; }
+loop "susan::susan_smoothing.L2" { bound: 15 .. 15; }
+
+loop "susan::susan_put_image.L1" { bound: 7220 .. 7220; }
+
+loop "susan::susan_edges.L1" { bound: 87 .. 87; }
+loop "susan::susan_edges.L2" { bound: 68 .. 68; }
+
+loop "susan::susan_edges_small.L1" { bound: 0 .. 0; }
+loop "susan::susan_edges_small.L2" { bound: 0 .. 0; }
+
+loop "susan::susan_edge_draw.L1" { bound: 7220 .. 7220; }
+loop "susan::susan_edge_draw.L2" { bound: 7220 .. 7220; }
+
+loop "susan::susan_thin.L1" { bound: 87 .. 87; }
+loop "susan::susan_thin.L2" { bound: 68 .. 68; }
+loop "susan::susan_thin.L3" { bound: 3 .. 3; }
+loop "susan::susan_thin.L4" { bound: 0 .. 3; }
+loop "susan::susan_thin.L5" { bound: 0 .. 3; }
+loop "susan::susan_thin.L6" { bound: 3 .. 3; }
+loop "susan::susan_thin.L7" { bound: 9 .. 9; }
+
+loop "susan::susan_int_to_uchar.L1" { bound: 0 .. 0; }
+
+loop "susan::susan_corners.L1" { bound: 85 .. 85; }
+loop "susan::susan_corners.L2" { bound: 66 .. 66; }
+loop "susan::susan_corners.L3" { bound: 3 .. 7; }
+loop "susan::susan_corners.L4" { bound: 85 .. 85; }
+loop "susan::susan_corners.L5" { bound: 66 .. 66; }
+
+loop "susan::susan_corners_quick.L1" { bound: 0 .. 0; }
+loop "susan::susan_corners_quick.L2" { bound: 0 .. 0; }
+loop "susan::susan_corners_quick.L3" { bound: 0 .. 0; }
+loop "susan::susan_corners_quick.L4" { bound: 0 .. 0; }
+loop "susan::susan_corners_quick.L5" { bound: 0 .. 0; }
+
+loop "susan::susan_corner_draw.L1" { bound: 0 .. 0; }
+
+loop "susan::is_local_max.L1" { bound: 0 .. 7; }
+
+loop "susan::susan_acc.L1" { bound: 3 .. 7; }
+
+loop "susan::susan_cornerness_base.L1" { bound: 4 .. 8; }
+
+loop "susan::susan_cornerness_acc.L1" { bound: 4 .. 8; }
+loop "susan::susan_cornerness_acc.L2" { bound: 0 .. 3; }
+
+loop "susan::susan_main_base.L1" { bound: 89 .. 89; }
+loop "susan::susan_main_base.L2" { bound: 70 .. 70; }
+loop "susan::susan_main_base.L3" { bound: 4 .. 8; }
+
+loop "susan::susan_sqrtf.L1" { bound: 19 .. 19; }
+
+loop "susan::susan_enlarge.L1" { bound: 95 .. 95; }
+loop "susan::susan_enlarge.L2" { bound: 7 .. 7; }
+loop "susan::susan_enlarge.L3" { bound: 7 .. 7; }
+loop "susan::susan_enlarge.L4" { bound: 109 .. 109; }
+
+loop "susan::susan_smoothing_main<susan::susan_smoothing::{closure_env#1}>.L1" { bound: 0 .. 15; }
+loop "susan::susan_smoothing_main<susan::susan_smoothing::{closure_env#1}>.L2" { bound: 0 .. 15; }
+
+loop "susan::susan_smoothing_main<susan::susan_smoothing::{closure_env#0}>.L1" { bound: 0 .. 15; }
+loop "susan::susan_smoothing_main<susan::susan_smoothing::{closure_env#0}>.L2" { bound: 0 .. 15; }
+
+loop "susan::susan_smoothing::{{closure}}(&susan::susan_smoothing::{closure_env#0}, susan::memory::HeapSlice, susan::memory::HeapSlice, core::option::Option<susan::memory::HeapSlice>, &u16, &u16, &u16, &i32, &i32, isize, u16, &susan::memory::SimulatedHeap).L2" {
+    bound: 0 .. 15;
+
+}
+
+loop "susan::susan_smoothing::{{closure}}(&susan::susan_smoothing::{closure_env#0}, susan::memory::HeapSlice, susan::memory::HeapSlice, core::option::Option<susan::memory::HeapSlice>, &u16, &u16, &u16, &i32, &i32, isize, u16, &susan::memory::SimulatedHeap).L1" {
+    bound: 0 .. 15;
+}
+
+loop "susan::susan_smoothing::{{closure}}(susan::memory::HeapSlice, susan::memory::HeapSlice, core::option::Option<susan::memory::HeapSlice>, &u16, &u16, &u16, &i32, &i32, isize, u16, &susan::memory::SimulatedHeap).L1" {
+    bound: 0 .. 15;
+}
+
+loop "susan::susan_getint.L1" { bound: 0 .. 3; }
+loop "susan::susan_getint.L2" { bound: 1 .. 2; }
+
+loop "core::slice::sort::shared::smallsort::insertion_sort_shift_left.L1" { bound: 0 .. 6; }
+
+loop "core::slice::sort::shared::smallsort::insert_tail.L1" { bound: 0 .. 6; }
+
+loop "compiler_builtins::arm::__aeabi_memcpy4::__aeabi_memcpy4.L1" { bound: 0 .. inf; }
+
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memmove.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L4" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L5" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L6" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L7" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L8" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

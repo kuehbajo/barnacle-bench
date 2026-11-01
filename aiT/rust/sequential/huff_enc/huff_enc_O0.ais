@@ -1,0 +1,39 @@
+compiler: "arm-clang";
+
+loop "huff_enc::huff_enc_write_header.L1" { bound: 256 .. 256; }
+loop "huff_enc::huff_enc_write_header.L2" { bound: 256 .. 256; }
+loop "huff_enc::huff_enc_write_header.L3" { bound: 256 .. 256; }
+loop "huff_enc::huff_enc_write_header.L4" { bound: 257 .. 267; }
+
+loop "huff_enc::huff_enc_write_bin_val.L1" { bound: 1 .. 9; }
+
+loop "huff_enc::huff_enc_create_codes_table.L1" { bound: 0 .. 257; }
+
+loop "huff_enc::huff_enc_encode_codes_table.L1" { bound: 0 .. 31; }
+loop "huff_enc::huff_enc_encode_codes_table.L2" { bound: 0 .. 31; }
+
+loop "huff_enc::huff_enc_build_tree_encoding.L1" { bound: 257 .. 257; }
+loop "huff_enc::huff_enc_build_tree_encoding.L2" { bound: 600 .. 600; }
+loop "huff_enc::huff_enc_build_tree_encoding.L4" { bound: 38 .. 38; }
+
+loop "huff_enc::quicksort::sorts.L1" { bound: 0 .. 7; }
+loop "huff_enc::quicksort::sorts.L2" { bound: 1 .. 109; }
+loop "huff_enc::quicksort::sorts.L3" { bound: 1 .. 25; }
+
+#loop "huff_enc::quicksort::sorts.L1" { bound: 0 .. 109; }
+#loop "huff_enc::quicksort::sorts.L2" { bound: 1 .. 19; }
+#loop "huff_enc::quicksort::sorts.L3" { bound: 1 .. 25; }
+
+loop "huff_enc::huff_enc_main.L1" { bound: 600 .. 600; }
+
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memset::__aeabi_memset.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+routine "huff_enc::quicksort::sorts" { recursion bound: 1 .. 648; }
+routine "huff_enc::huff_enc_encode_codes_table" { recursion bound: 1 .. 77; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

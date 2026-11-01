@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+loop "h264_dec::h264_dec_decode_one_macroblock.L1" { bound: 2 .. 2; }
+loop "h264_dec::h264_dec_decode_one_macroblock.L2" { bound: 1 .. 1; }
+loop "h264_dec::h264_dec_decode_one_macroblock.L3" { bound: 4 .. 4; }
+loop "h264_dec::h264_dec_decode_one_macroblock.L4" { bound: 4 .. 4; }
+loop "h264_dec::h264_dec_decode_one_macroblock.L5" { bound: 4 .. 4; }
+loop "h264_dec::h264_dec_decode_one_macroblock.L6" { bound: 4 .. 4; }
+loop "h264_dec::h264_dec_decode_one_macroblock.L7" { bound: 4 .. 4; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

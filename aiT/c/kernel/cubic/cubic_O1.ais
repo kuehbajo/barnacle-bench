@@ -1,0 +1,6 @@
+compiler: "arm-clang";
+
+loop "cubic_main.L1" { bound: 0 .. 5; }
+loop "cubic_main.L2" { bound: 0 .. 5; }
+loop "cubic_main.L3" { bound: 0 .. 7; }
+loop "cubic_main.L4" { bound: 0 .. 5; }

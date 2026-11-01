@@ -1,0 +1,29 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times + splitting
+
+loop "fmref_main.L2" { bound: 0 .. 16; }
+loop "fmref_main.L6" { bound: 0 .. 15; }
+loop "fmref_main.L7" { bound: 0 .. 50; }
+loop "fmref_main.L8" { bound: 0 .. 16; }
+loop "fmref_main.L9" { bound: 0 .. 15; }
+loop "fmref_main.L10" { bound: 0 .. 15; }
+loop "fmref_main.L11" { bound: 0 .. 2; }
+loop "fmref_main.L12" { bound: 0 .. 15; }
+loop "fmref_main.L13" { bound: 0 .. 50; }
+loop "fmref_main.L14" { bound: 0 .. 16; }
+loop "fmref_main.L15" { bound: 0 .. 15; }
+loop "fmref_main.L16" { bound: 0 .. 15; }
+
+loop "fmref_run_equalizer.L1" { bound: 0 .. 11; }
+loop "fmref_run_equalizer.L2" { bound: 0 .. 16; }
+loop "fmref_run_equalizer.L3" { bound: 0 .. 15; }
+loop "fmref_run_equalizer.L4" { bound: 0 .. 2; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8004154.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8004154.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x800433a.L1" { bound: 0 .. inf; }
+loop ":Anon_0x800433a.L2" { bound: 0 .. inf; }

@@ -1,0 +1,49 @@
+compiler: "arm-clang";
+
+loop "epic::epic_reflect1.L1" { bound: 1 .. 15; }
+loop "epic::epic_reflect1.L2" { bound: 1 .. 15; }
+loop "epic::epic_reflect1.L3" { bound: 0 .. 0; }
+loop "epic::epic_reflect1.L4" { bound: 0 .. 0; }
+
+loop "epic::epic_build_pyr.L1" { bound: 4 .. 4; }
+
+loop "epic::epic_internal_filter.L1" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L2" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L3" { bound: 41 .. 97; }
+loop "epic::epic_internal_filter.L4" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L5" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L6" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L7" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L8" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L9" { bound: 41 .. 46; }
+loop "epic::epic_internal_filter.L10" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L11" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L12" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L13" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L14" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L15" { bound: 41 .. 97; }
+loop "epic::epic_internal_filter.L16" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L17" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L18" { bound: 41 .. 46; }
+loop "epic::epic_internal_filter.L19" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L20" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L21" { bound: 41 .. 97; }
+loop "epic::epic_internal_filter.L22" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L23" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L24" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L25" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L26" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L27" { bound: 41 .. 46; }
+loop "epic::epic_internal_filter.L28" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L29" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L30" { bound: 1 .. 4; }
+loop "epic::epic_internal_filter.L31" { bound: 1 .. 15; }
+loop "epic::epic_internal_filter.L32" { bound: 1 .. 15; }
+
+loop "epic::epic_internal_transpose.L1" { bound: 14 .. 2399; }
+loop "epic::epic_internal_transpose.L2" { bound: 1 .. 2; }
+
+loop "<[T] as core::slice::specialize::SpecFill<T>>::spec_fill<f32>.L1" { bound: 15 .. 15; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

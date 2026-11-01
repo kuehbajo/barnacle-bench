@@ -1,0 +1,4 @@
+compiler: "arm-clang";
+
+loop "bsort::bsort_main.L2" { bound: 0 .. 1; }
+loop "bsort::bsort_main.L3" { bound: 0 .. 99; }

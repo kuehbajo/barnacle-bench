@@ -1,0 +1,7 @@
+compiler: "arm-clang";
+
+loop "rijndael_dec_set_key.L4" { bound: 13 .. 13; }
+
+loop "rijndael_dec_decfile.L2" { bound: 2046 .. 2046; }
+
+loop "rijndael_dec_fread.L1" { bound: 0 .. 16; }

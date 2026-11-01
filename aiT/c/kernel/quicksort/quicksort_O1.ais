@@ -1,0 +1,27 @@
+compiler: "arm-clang";
+
+loop "quicksort_str.L1" { bound: 0 .. 8; }
+loop "quicksort_str.L2" { bound: 0 .. 169; }
+loop "quicksort_str.L3" { bound: 0 .. 26; }
+loop "quicksort_str.L4" { bound: 0 .. 23; }
+
+loop "quicksort_vec.L1" { bound: 0 .. 15; }
+loop "quicksort_vec.L2" { bound: 0 .. 250; }
+loop "quicksort_vec.L3" { bound: 0 .. 51; }
+loop "quicksort_vec.L4" { bound: 0 .. 27; }
+
+loop "quicksort_compare_strings.L1" { bound: 0 .. 11; }
+
+loop "quicksort_pivot_strings.L1" { bound: 0 .. 11; }
+loop "quicksort_pivot_strings.L2" { bound: 0 .. 11; }
+loop "quicksort_pivot_strings.L3" { bound: 0 .. 11; }
+loop "quicksort_pivot_strings.L4" { bound: 0 .. 11; }
+loop "quicksort_pivot_strings.L5" { bound: 0 .. 11; }
+
+# for the compiler builtins default bounds are used
+loop "__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }
+
+routine "quicksort_str" { recursion bound: 0 .. 521; }
+routine "quicksort_vec" { recursion bound: 0 .. 650; }

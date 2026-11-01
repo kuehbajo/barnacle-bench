@@ -1,0 +1,24 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times + remainder peeling + loop splitting
+# -> hard to annotate
+
+loop "cjpeg_transupp_do_flip_v.L1" { bound: 0 .. 3; }
+
+loop "cjpeg_transupp_do_rot_90.L1" { bound: 0 .. 3; }
+
+loop "cjpeg_transupp_do_rot_270.L1" { bound: 0 .. 3; }
+
+loop "cjpeg_transupp_do_rot_180.L1" { bound: 0 .. 3; }
+loop "cjpeg_transupp_do_rot_180.L2" { bound: 0 .. 10; }
+# if
+loop "cjpeg_transupp_do_rot_180.L3" { bound: 0 .. 8; }
+loop "cjpeg_transupp_do_rot_180.L4" { bound: 0 .. 28; }
+# else
+loop "cjpeg_transupp_do_rot_180.L5" { bound: 0 .. 8; }
+loop "cjpeg_transupp_do_rot_180.L6" { bound: 0 .. 14; }
+loop "cjpeg_transupp_do_rot_180.L7" { bound: 0 .. 32; }
+
+loop "cjpeg_transupp_do_transverse.L1" { bound: 0 .. 3; }
+
+loop "memcpy.L1" { bound: 0 .. inf; }

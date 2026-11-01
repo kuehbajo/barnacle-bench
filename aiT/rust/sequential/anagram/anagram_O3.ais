@@ -1,0 +1,24 @@
+compiler: "arm-clang";
+
+# anagram_main.L8: aiT finds max 29999 -> seems strange
+
+loop "anagram::anagram_find_anagram.L2" { bound: 0 .. 11; }
+
+loop "anagram::quicksort::sorts.L1" { bound: 0 .. 3; }
+loop "anagram::quicksort::sorts.L2" { bound: 0 .. 10; }
+loop "anagram::quicksort::sorts.L3" { bound: 0 .. 6; }
+loop "anagram::quicksort::sorts.L4" { bound: 0 .. 7; }
+
+loop "anagram::anagram_main.L1" { bound: 0 .. 3; }
+loop "anagram::anagram_main.L2" { bound: 0 .. 11; }
+loop "anagram::anagram_main.L3" { bound: 0 .. 26; }
+loop "anagram::anagram_main.L4" { bound: 0 .. 2; }
+loop "anagram::anagram_main.L5" { bound: 0 .. 2; }
+loop "anagram::anagram_main.L6" { bound: 0 .. 2280; }
+loop "anagram::anagram_main.L7" { bound: 0 .. 26; }
+
+routine "anagram::anagram_find_anagram" { recursion bound: 0 .. 51; }
+routine "anagram::quicksort::sorts" { recursion bound: 0 .. 17; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

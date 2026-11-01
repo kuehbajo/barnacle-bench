@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 3x times
+
+loop "gsm_dec_Decoder.L1" { bound: 0 .. 4; }
+loop "gsm_dec_Decoder.L2" { bound: 0 .. 3; }
+
+# for the compiler builtins default bounds are used
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }
+
+loop "__aeabi_memmove.L1" { bound: 0 .. inf; }
+loop "__aeabi_memmove.L2" { bound: 0 .. inf; }

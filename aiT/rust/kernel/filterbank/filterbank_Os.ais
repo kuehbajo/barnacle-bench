@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "filterbank::filterbank_main.L6" { bound: 0 .. 2; }

@@ -1,0 +1,15 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+loop "ludcmp_test.L3" { bound: 0 .. 1; }
+loop "ludcmp_test.L5" { bound: 0 .. 1; }
+loop "ludcmp_test.L7" { bound: 0 .. 1; }
+loop "ludcmp_test.L9" { bound: 0 .. 1; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x800266c.L1" { bound: 0 .. inf; }
+loop ":Anon_0x800266c.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x8002852.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8002852.L2" { bound: 0 .. inf; }

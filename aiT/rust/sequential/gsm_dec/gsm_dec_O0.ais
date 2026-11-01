@@ -1,0 +1,31 @@
+compiler: "arm-clang";
+
+loop "gsm_dec::gsm_dec_decoder.L1" { bound: 4 .. 4; }
+loop "gsm_dec::gsm_dec_decoder.L2" { bound: 40 .. 40; }
+
+loop "gsm_dec::gsm_dec_larp_to_rp.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec::gsm_dec_postprocessing.L1" { bound: 159 .. 159; }
+
+loop "gsm_dec::gsm_dec_coefficients_0_12.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec::gsm_dec_coefficients_13_26.L1" {bound: 8 .. 8; }
+
+loop "gsm_dec::gsm_dec_coefficients_27_39.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec::gsm_dec_coefficients_40_159.L1" { bound: 8 .. 8; }
+
+loop "gsm_dec::gsm_dec_apcm_inverse_quantization.L1" { bound: 13 .. 13; }
+
+loop "gsm_dec::gsm_dec_long_term_synthesis_filtering.L1" { bound: 40 .. 40; }
+loop "gsm_dec::gsm_dec_long_term_synthesis_filtering.L2" { bound: 120 .. 120; }
+
+loop "gsm_dec::gsm_dec_short_term_synthesis_filtering.L1" { bound: 12 .. 119; }
+loop "gsm_dec::gsm_dec_short_term_synthesis_filtering.L2" { bound: 8 .. 8; }
+
+loop "gsm_dec::gsm_dec_apcm_quantization_xmaxc_to_exp_mant.L1" { bound: 0 .. 3; }
+
+loop "gsm_dec::gsm_dec_main.L1" { bound: 20 .. 20; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,38 @@
+compiler: "arm-clang";
+
+loop "mpeg2::mpeg2_dist1.L1" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist1.L2" { bound: 16 .. 16; }
+loop "mpeg2::mpeg2_dist1.L3" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist1.L4" { bound: 16 .. 16; }
+loop "mpeg2::mpeg2_dist1.L5" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist1.L6" { bound: 16 .. 16; }
+loop "mpeg2::mpeg2_dist1.L7" { bound: 0 .. 16; }
+loop "mpeg2::mpeg2_dist1.L8" { bound: 0 .. 16; }
+
+loop "mpeg2::mpeg2_dist2.L1" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist2.L2" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist2.L3" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist2.L4" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist2.L5" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist2.L6" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist2.L7" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_dist2.L8" { bound: 8 .. 16; }
+
+loop "mpeg2::mpeg2_bdist1.L1" { bound: 8 .. 16; }
+
+loop "mpeg2::mpeg2_bdist2.L1" { bound: 8 .. 16; }
+loop "mpeg2::mpeg2_bdist2.L2" { bound: 16 .. 16; }
+
+loop "mpeg2::mpeg2_variance.L1" { bound: 16 .. 16; }
+loop "mpeg2::mpeg2_variance.L2" { bound: 16 .. 16; }
+
+loop "mpeg2::mpeg2_fullsearch.L1" { bound: 3 .. 7; }
+loop "mpeg2::mpeg2_fullsearch.L2" { bound: 8 .. 56; }
+loop "mpeg2::mpeg2_fullsearch.L3" { bound: 2 .. 3; }
+loop "mpeg2::mpeg2_fullsearch.L4" { bound: 2 .. 3; }
+
+loop "mpeg2::mpeg2_motion_estimation.L1" { bound: 8 .. 8; }
+loop "mpeg2::mpeg2_motion_estimation.L2" { bound: 11 .. 11; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,24 @@
+compiler: "arm-clang";
+
+loop "fmref_main.L1" { bound: 64 .. 64; }
+loop "fmref_main.L2" { bound: 2 .. 2; }
+
+loop "fmref_init_lpf_data.L1" { bound: 64 .. 64; }
+
+loop "fmref_get_floats.L1" { bound: 140 .. 200; }
+
+loop "fmref_run_lpf.L1" { bound: 64 .. 64; }
+
+loop "fmref_run_equalizer.L1" { bound: 11 .. 11; }
+
+loop "fmref_fb_compact.L1" { bound: 0 .. 60; }
+
+loop "fmref_init_equalizer.L1" { bound: 11 .. 11; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x80036b0.L1" { bound: 0 .. inf; }
+loop ":Anon_0x80036b0.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x8003896.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8003896.L2" { bound: 0 .. inf; }

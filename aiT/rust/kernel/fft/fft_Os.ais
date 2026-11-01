@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "fft::fft_main.L2" { bound: 0 .. 10; }
+loop "fft::fft_main.L3" { bound: 0 .. 10; }
+loop "fft::fft_main.L4" { bound: 0 .. 512; }
+loop "fft::fft_main.L5" { bound: 0 .. 512; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,60 @@
+compiler: "arm-clang";
+
+loop "cjpeg_transupp::cjpeg_transupp_do_rot.L1" { bound: 3 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot.L2" { bound: 4 .. 15; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot.L3" { bound: 1 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot.L4" { bound: 10 .. 10; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot.L5" { bound: 1 .. 2; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot.L7" { bound: 8 .. 8; }
+
+loop "cjpeg_transupp::cjpeg_transupp_do_flip_v.L1" { bound: 3 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_do_flip_v.L2" { bound: 2 .. 10; }
+loop "cjpeg_transupp::cjpeg_transupp_do_flip_v.L3" { bound: 1 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_flip_v.L4" { bound: 15 .. 29; }
+loop "cjpeg_transupp::cjpeg_transupp_do_flip_v.L5" { bound: 4 .. 4; }
+loop "cjpeg_transupp::cjpeg_transupp_do_flip_v.L6" { bound: 8 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_flip_v.L7" { bound: 8 .. 8; }
+
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L1" { bound: 3 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L2" { bound: 3 .. 10; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L3" { bound: 1 .. 8; }
+# if
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L8" { bound: 14 .. 28; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L9" { bound: 1 .. 1; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L10" { bound: 4 .. 4; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L11" { bound: 8 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L12" { bound: 8 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L13" { bound: 4 .. 4; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L14" { bound: 4 .. 4; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L15" { bound: 4 .. 4; }
+# else
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L4" { bound: 0 .. 14; } # cannot use min 14
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L5" { bound: 0 .. 32; } # cannot use min 32
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L6" { bound: 1 .. 1; }
+loop "cjpeg_transupp::cjpeg_transupp_do_rot_180.L7" { bound: 1 .. 1; }
+
+loop "cjpeg_transupp::transpose_and_mirror_block.L1" { bound: 8 .. 8; }
+loop "cjpeg_transupp::transpose_and_mirror_block.L2" { bound: 8 .. 8; }
+
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L1" { bound: 3 .. 3; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L2" { bound: 4 .. 15; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L3" { bound: 1 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L4" { bound: 5 .. 10; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L5" { bound: 1 .. 2; }
+# outer: else | inner: else
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L6" { bound: 8 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L7" { bound: 8 .. 8; }
+# outer: else | inner: if
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L8" { bound: 4 .. 4; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L9" { bound: 8 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L10" { bound: 8 .. 8; }
+# outer: if | inner: else
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L11" { bound: 8 .. 8; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L12" { bound: 4 .. 4; }
+# outer: if | inner: if
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L13" { bound: 4 .. 4; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L14" { bound: 4 .. 4; }
+loop "cjpeg_transupp::cjpeg_transupp_do_transverse.L15" { bound: 4 .. 4; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

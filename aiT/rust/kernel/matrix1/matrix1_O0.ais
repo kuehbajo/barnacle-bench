@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+loop "matrix1::matrix1_main.L1" { bound: 10 .. 10; }
+loop "matrix1::matrix1_main.L2" { bound: 10 .. 10; }
+loop "matrix1::matrix1_main.L3" { bound: 10 .. 10; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

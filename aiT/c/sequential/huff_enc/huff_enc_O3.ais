@@ -1,0 +1,25 @@
+compiler: "arm-clang";
+
+loop "huff_enc_write_header.L2" { bound: 0 .. 256; }
+loop "huff_enc_write_header.L3" { bound: 0 .. 257; }
+loop "huff_enc_write_header.L4" { bound: 0 .. 9; }
+
+loop "huff_enc_qsort.L1" { bound: 0 .. 7; }
+loop "huff_enc_qsort.L2" { bound: 0 .. 2; }
+loop "huff_enc_qsort.L3" { bound: 0 .. 109; }
+loop "huff_enc_qsort.L4" { bound: 0 .. 1; }
+loop "huff_enc_qsort.L5" { bound: 0 .. 5; }
+loop "huff_enc_qsort.L6" { bound: 0 .. 7; }
+loop "huff_enc_qsort.L7" { bound: 0 .. 2; }
+loop "huff_enc_qsort.L8" { bound: 0 .. 2; }
+
+loop "huff_enc_build_tree_encoding.L2" { bound: 0 .. 600; }
+loop "huff_enc_build_tree_encoding.L4" { bound: 0 .. 38; }
+
+loop "huff_enc_main.L2" { bound: 0 .. 600; }
+loop "huff_enc_main.L3" { bound: 0 .. 4; }
+loop "huff_enc_main.L4" { bound: 0 .. 1; }
+loop "huff_enc_main.L5" { bound: 0 .. 4; }
+
+routine "huff_enc_qsort" { recursion bound: 1 .. 648; }
+routine "huff_enc_encode_codes_table" { recursion bound: 1 .. 77; }

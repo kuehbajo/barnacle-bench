@@ -1,0 +1,73 @@
+compiler: "arm-clang";
+
+loop "susan_getint.L1" { bound: 0 .. 3; }
+loop "susan_getint.L2" { bound: 1 .. 2; }
+
+loop "susan_put_image.L1" { bound: 7220 .. 7220; }
+
+loop "susan_int_to_uchar.L1" { bound: 0 .. 0; }
+loop "susan_int_to_uchar.L2" { bound: 0 .. 0; }
+loop "susan_int_to_uchar.L3" { bound: 0 .. 0; }
+
+loop "susan_setup_brightness_lut.L1" { bound: 513 .. 513; }
+
+loop "susan_principle.L1" { bound: 0 .. 0; }
+loop "susan_principle.L2" { bound: 0 .. 0; }
+
+loop "susan_principle_small.L1" { bound: 0 .. 0; }
+loop "susan_principle_small.L2" { bound: 0 .. 0; }
+
+loop "susan_enlarge.L1" { bound: 95 .. 95; }
+loop "susan_enlarge.L2" { bound: 7 .. 7; }
+loop "susan_enlarge.L3" { bound: 7 .. 7; }
+loop "susan_enlarge.L4" { bound: 109 .. 109; }
+
+# if
+loop "susan_smoothing.L1" { bound: 0 .. 15; }
+loop "susan_smoothing.L2" { bound: 0 .. 15; }
+loop "susan_smoothing.L3" { bound: 95 .. 95; }
+loop "susan_smoothing.L4" { bound: 76 .. 76; }
+loop "susan_smoothing.L5" { bound: 15 .. 15; }
+loop "susan_smoothing.L6" { bound: 15 .. 15; }
+# else
+loop "susan_smoothing.L7" { bound: 0 .. 15; }
+loop "susan_smoothing.L8" { bound: 0 .. 15; }
+
+loop "susan_edge_draw.L1" { bound: 7220 .. 7220; }
+loop "susan_edge_draw.L2" { bound: 7220 .. 7220; }
+
+loop "susan_thin.L1" { bound: 87 .. 87; }
+loop "susan_thin.L2" { bound: 68 .. 68; }
+
+loop "susan_edges.L1" { bound: 89 .. 89; }
+loop "susan_edges.L2" { bound: 70 .. 70; }
+loop "susan_edges.L3" { bound: 87 .. 87; }
+loop "susan_edges.L4" { bound: 68 .. 68; }
+
+loop "susan_edges_small.L1" { bound: 0 .. 0; }
+loop "susan_edges_small.L2" { bound: 0 .. 0; }
+loop "susan_edges_small.L3" { bound: 0 .. 0; }
+loop "susan_edges_small.L4" { bound: 0 .. 0; }
+
+loop "susan_corner_draw.L1" { bound: 0 .. 0; }
+
+loop "susan_corners.L1" { bound: 85 .. 85; }
+loop "susan_corners.L2" { bound: 66 .. 66; }
+loop "susan_corners.L3" { bound: 85 .. 85; }
+loop "susan_corners.L4" { bound: 66 .. 66; }
+
+loop "susan_corners_quick.L1" { bound: 0 .. 0; }
+loop "susan_corners_quick.L2" { bound: 0 .. 0; }
+loop "susan_corners_quick.L3" { bound: 0 .. 0; }
+loop "susan_corners_quick.L4" { bound: 0 .. 0; }
+
+loop "susan_wccfread.L1" { bound: 7220 .. 7220; }
+
+loop "susan_wccfgets.L1" { bound: 57 .. 57; }
+
+loop "susan_wccmemcpy.L1" { bound: 76 .. 76; }
+
+loop "susan_wccmemset.L1" { bound: 7220 .. 7220; }
+
+loop ":Anon_0x80078dc.L1" { bound: 0 .. inf; }
+loop ":Anon_0x80078dc.L2" { bound: 0 .. inf; }

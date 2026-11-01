@@ -1,0 +1,11 @@
+compiler: "arm-clang";
+
+# loop
+loop "bitonic::bitonic_merge.L1" { bound: 0 .. 16; }
+
+# recursion
+routine "bitonic::bitonic_sort" { recursion bound: 1 .. 63; }
+routine "bitonic::bitonic_merge" { recursion bound: 1 .. 31; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+# outer loop: suspect fully unroll
+# inner loop: suspect partially unroll 4x times
+
+loop "insertsort_main.L3" { bound: 0 .. 1; }
+loop "insertsort_main.L4" { bound: 0 .. 1; }
+loop "insertsort_main.L5" { bound: 0 .. 2; }
+loop "insertsort_main.L6" { bound: 0 .. 2; }
+loop "insertsort_main.L7" { bound: 0 .. 2; }
+loop "insertsort_main.L8" { bound: 0 .. 2; }
+loop "insertsort_main.L9" { bound: 0 .. 3; }

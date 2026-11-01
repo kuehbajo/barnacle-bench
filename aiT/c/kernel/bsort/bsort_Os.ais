@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "bsort_BubbleSort.L2" { bound: 0 .. 1; } # -> L1 and L3 both annotated with 99 -> using 99 would incur overly high estimation

@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "matrix1::matrix1_main.L1" { bound: 0 .. 10; }

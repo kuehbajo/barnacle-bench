@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.absint.com/dtd/a3-apx-22.04i.xsd" xmlns="http://www.absint.com/apx" version="22.04i" build="11598242" target="arm">
+ <files>
+  <ais>../../../hardware.ais</ais>
+ </files>
+ <options>
+  <analyses_options>
+   <strip_compilation_path>false</strip_compilation_path>
+   <report_file_verbosity_level>3</report_file_verbosity_level>
+  </analyses_options>
+  <arm_options>
+   <general>
+    <target>Cortex-M4</target>
+   </general>
+  </arm_options>
+  <general_options>
+   <include_path>..%2F..%2F..%2Fbench%2Fc</include_path>
+  </general_options>
+ </options>
+ <analyses>
+  <analysis type="wcet_analysis" id="recursion_O0" enabled="true" configuration="O0">
+   <report>report_O0.txt</report>
+   <xml_report>report_O0.xml</xml_report>
+   <analysis_start>recursion_main</analysis_start>
+   <ais>recursion_O0.ais</ais>
+  </analysis>
+  <analysis enabled="true" type="wcet_analysis" id="recursion_O1" configuration="O1">
+   <ais>recursion_O1.ais</ais>
+   <analysis_start>recursion_main</analysis_start>
+   <report>report_O1.txt</report>
+   <xml_report>report_O1.xml</xml_report>
+  </analysis>
+  <analysis enabled="true" type="wcet_analysis" id="recursion_O2" configuration="O2">
+   <analysis_start>recursion_main</analysis_start>
+   <ais>recursion_O2.ais</ais>
+   <report>report_O2.txt</report>
+   <xml_report>report_O2.xml</xml_report>
+  </analysis>
+  <analysis enabled="true" type="wcet_analysis" id="recursion_O3" configuration="O3">
+   <analysis_start>recursion_main</analysis_start>
+   <ais>recursion_O3.ais</ais>
+   <report>report_O3.txt</report>
+   <xml_report>report_O3.xml</xml_report>
+  </analysis>
+  <analysis enabled="true" type="wcet_analysis" id="recursion_Og" configuration="Og">
+   <analysis_start>recursion_main</analysis_start>
+   <ais>recursion_Og.ais</ais>
+   <report>report_Og.txt</report>
+   <xml_report>report_Og.xml</xml_report>
+  </analysis>
+  <analysis enabled="true" type="wcet_analysis" id="recursion_Os" configuration="Os">
+   <analysis_start>recursion_main</analysis_start>
+   <ais>recursion_Os.ais</ais>
+   <report>report_Os.txt</report>
+   <xml_report>report_Os.xml</xml_report>
+  </analysis>
+  <analysis enabled="true" type="wcet_analysis" id="recursion_Oz" configuration="Oz">
+   <analysis_start>recursion_main</analysis_start>
+   <ais>recursion_Oz.ais</ais>
+   <report>report_Oz.txt</report>
+   <xml_report>report_Oz.xml</xml_report>
+  </analysis>
+ </analyses>
+ <configurations>
+  <configuration name="O0" base="">
+   <files>
+    <executables>../../../../bench/c/build/O0/recursion.elf</executables>
+   </files>
+  </configuration>
+  <configuration name="O1" base="">
+   <files>
+    <executables>../../../../bench/c/build/O1/recursion.elf</executables>
+   </files>
+  </configuration>
+  <configuration name="O2" base="">
+   <files>
+    <executables>../../../../bench/c/build/O2/recursion.elf</executables>
+   </files>
+  </configuration>
+  <configuration name="O3" base="">
+   <files>
+    <executables>../../../../bench/c/build/O3/recursion.elf</executables>
+   </files>
+  </configuration>
+  <configuration name="Og" base="">
+   <files>
+    <executables>../../../../bench/c/build/Og/recursion.elf</executables>
+   </files>
+  </configuration>
+  <configuration name="Os" base="">
+   <files>
+    <executables>../../../../bench/c/build/Os/recursion.elf</executables>
+   </files>
+  </configuration>
+  <configuration name="Oz" base="">
+   <files>
+    <executables>../../../../bench/c/build/Oz/recursion.elf</executables>
+   </files>
+  </configuration>
+ </configurations>
+</project>

@@ -1,0 +1,13 @@
+compiler: "arm-clang";
+
+# middle nested loop seems to be removed
+
+loop "minver_minver.L8" { bound: 0 .. 3; }
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001c80.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001c80.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001e66.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001e66.L2" { bound: 0 .. inf; }

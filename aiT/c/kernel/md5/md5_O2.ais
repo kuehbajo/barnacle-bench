@@ -1,0 +1,15 @@
+compiler: "arm-clang";
+
+# outer loop: seems to be completely unrolled
+
+loop "md5_main.L1" { bound: 0 .. 256; }
+loop "md5_main.L2" { bound: 0 .. 256; }
+loop "md5_main.L3" { bound: 0 .. 256; }
+loop "md5_main.L4" { bound: 0 .. 256; }
+loop "md5_main.L5" { bound: 0 .. 256; }
+loop "md5_main.L6" { bound: 0 .. 256; }
+loop "md5_main.L7" { bound: 0 .. 256; }
+loop "md5_main.L8" { bound: 0 .. 256; }
+loop "md5_main.L9" { bound: 0 .. 256; }
+loop "md5_main.L10" { bound: 0 .. 256; }
+loop "md5_main.L11" { bound: 0 .. 256; }

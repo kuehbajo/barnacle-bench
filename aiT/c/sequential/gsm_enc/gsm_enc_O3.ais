@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "gsm_enc_APCM_quantization.L1" { bound: 0 .. 1; }
+
+loop "gsm_enc_Autocorrelation.L5" { bound: 0 .. 40; }
+loop "gsm_enc_Autocorrelation.L6" { bound: 0 .. 38; }

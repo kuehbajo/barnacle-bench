@@ -1,0 +1,32 @@
+compiler: "arm-clang";
+
+loop "pm_custom::pm_main.L1" { bound: 0 .. 60; }
+loop "pm_custom::pm_main.L2" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L3" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L4" { bound: 0 .. 21; }
+loop "pm_custom::pm_main.L5" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L6" { bound: 0 .. 60; }
+loop "pm_custom::pm_main.L7" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L8" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L9" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L14" { bound: 0 .. 21; }
+loop "pm_custom::pm_main.L16" { bound: 0 .. 64; }
+loop "pm_custom::pm_main.L17" { bound: 0 .. 21; }
+loop "pm_custom::pm_main.L19" { bound: 0 .. 64; }
+
+loop "<core::iter::adapters::copied::Copied<I> as core::iter::traits::iterator::Iterator>::fold<core::slice::iter::Iter<f32>, f32, f32, core::iter::traits::iterator::Iterator::max_by::fold::{closure_env#0}<f32, fn(&f32, &f32) -> core::cmp::Ordering>>.L1" {
+    bound: 0 .. 64;
+}
+
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memclr4::__aeabi_memclr4.L2" { bound: 0 .. inf; }
+
+loop "compiler_builtins::arm::__aeabi_memcpy4::__aeabi_memcpy4.L1" { bound: 0 .. inf; } # -> copy_from_slice -> unclear -> default
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

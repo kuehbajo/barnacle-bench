@@ -1,0 +1,4 @@
+compiler: "arm-clang";
+
+loop "md5_main.L1" { bound: 0 .. 256; }
+loop "md5_main.L3" { bound: 0 .. 256; }

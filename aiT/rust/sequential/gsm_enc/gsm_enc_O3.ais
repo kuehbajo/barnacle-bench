@@ -1,0 +1,14 @@
+compiler: "arm-clang";
+
+loop "gsm_enc::gsm_enc_main.L1" { bound: 0 .. 20; }
+loop "gsm_enc::gsm_enc_main.L5" { bound: 0 .. 152; }
+loop "gsm_enc::gsm_enc_main.L6" { bound: 0 .. 9; }
+loop "gsm_enc::gsm_enc_main.L8" { bound: 0 .. 8; }
+loop "gsm_enc::gsm_enc_main.L9" { bound: 0 .. 7; }
+loop "gsm_enc::gsm_enc_main.L10" { bound: 0 .. 4; }
+loop "gsm_enc::gsm_enc_main.L13" { bound: 0 .. 120; }
+loop "gsm_enc::gsm_enc_main.L16" { bound: 0 .. 3; }
+loop "gsm_enc::gsm_enc_main.L17" { bound: 0 .. 40; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

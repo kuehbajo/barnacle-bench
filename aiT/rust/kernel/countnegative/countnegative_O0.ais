@@ -1,0 +1,4 @@
+compiler: "arm-clang";
+
+loop "countnegative::countnegative_sum.L1" { bound: 20 .. 20; }
+loop "countnegative::countnegative_sum.L2" { bound: 20 .. 20; }

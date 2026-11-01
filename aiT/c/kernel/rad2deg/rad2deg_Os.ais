@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "rad2deg_main.L1" { bound: 0 .. 360; }

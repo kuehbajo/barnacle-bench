@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+# suspect tail-recursion optimization
+# as only 1 recursive bitonic_merge call remains
+# additionally bitonic_merge.L1 exists
+# assume log2(initial_cnt) as bound
+
+loop "bitonic_merge.L1" { bound: 0 .. 5; } # log2(initial_cnt)
+loop "bitonic_merge.L2" { bound: 0 .. 16; }
+
+routine "bitonic_sort" { recursion bound: 1 .. 63; }
+routine "bitonic_merge" { recursion bound: 1 .. 31; }

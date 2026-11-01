@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::arm::__aeabi_memclr::__aeabi_memclr.L3" { bound: 0 .. inf; }
+
+loop "compiler_builtins::mem::memcpy.L1" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L3" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memcpy.L4" { bound: 0 .. inf; }

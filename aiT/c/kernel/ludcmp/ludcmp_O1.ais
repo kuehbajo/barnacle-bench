@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "__aeabi_ddiv.L1" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001c78.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001c78.L2" { bound: 0 .. inf; }
+
+loop ":Anon_0x8001e5e.L1" { bound: 0 .. inf; }
+loop ":Anon_0x8001e5e.L2" { bound: 0 .. inf; }

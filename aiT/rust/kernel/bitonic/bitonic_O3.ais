@@ -1,0 +1,16 @@
+compiler: "arm-clang";
+
+# suspect tail-recursion optimization
+# however, bitonic_merge has 4 loops in total
+# use max given value as safety
+
+# loop
+loop "bitonic::bitonic_merge.L2" { bound: 0 .. 16; }
+loop "bitonic::bitonic_merge.L3" { bound: 0 .. 16; }
+
+# recursion
+routine "bitonic::bitonic_sort" { recursion bound: 1 .. 63; }
+routine "bitonic::bitonic_merge" { recursion bound: 1 .. 31; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

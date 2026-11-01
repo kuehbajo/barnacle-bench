@@ -1,0 +1,9 @@
+compiler: "arm-clang";
+
+loop "cubic_main.L1" { bound: 5 .. 5; }
+loop "cubic_main.L2" { bound: 5 .. 5; }
+loop "cubic_main.L3" { bound: 7 .. 7; }
+loop "cubic_main.L4" { bound: 5 .. 5; }
+
+# specified bound min 0 max 0 creates "seems to have more iterations than specified" warning -> use default
+loop "basicmath___ieee754_sqrtf.L1" { bound: 0 .. inf; }

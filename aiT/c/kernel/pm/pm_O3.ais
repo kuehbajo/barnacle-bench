@@ -1,0 +1,40 @@
+compiler: "arm-clang";
+
+# suspect branch in loop to be split into 2 inner loops
+# suspect loop unrolling 4x times
+
+loop "pm_kernel.L2" { bound: 0 .. 16; }
+loop "pm_kernel.L3" { bound: 0 .. 16; }
+loop "pm_kernel.L4" { bound: 0 .. 21; }
+loop "pm_kernel.L5" { bound: 0 .. 16; }
+loop "pm_kernel.L6" { bound: 0 .. 16; }
+loop "pm_kernel.L7" { bound: 0 .. 60; }
+loop "pm_kernel.L8" { bound: 0 .. 15; }
+loop "pm_kernel.L9" { bound: 0 .. 64; }
+loop "pm_kernel.L10" { bound: 0 .. 64; }
+# if
+loop "pm_kernel.L11" { bound: 0 .. 21; }
+loop "pm_kernel.L12" { bound: 0 .. 16; }
+loop "pm_kernel.L13" { bound: 0 .. 16; }
+loop "pm_kernel.L14" { bound: 0 .. 16; }
+# else
+loop "pm_kernel.L15" { bound: 0 .. 0; }
+loop "pm_kernel.L16" { bound: 0 .. 0; }
+loop "pm_kernel.L17" { bound: 0 .. 0; }
+
+loop "pm_kernel.L18" { bound: 0 .. 20; }
+# if
+loop "pm_kernel.L20" { bound: 0 .. 16; }
+loop "pm_kernel.L21" { bound: 0 .. 16; }
+# else
+loop "pm_kernel.L22" { bound: 0 .. 16; }
+loop "pm_kernel.L23" { bound: 0 .. 16; }
+
+loop "pm_kernel.L24" { bound: 0 .. 14; }
+
+loop "pm_memcpy.L1" { bound: 0 .. 64; }
+
+# for the compiler builtins default bounds are used
+loop "__aeabi_memset.L1" { bound: 0 .. inf; }
+loop "__aeabi_memset.L2" { bound: 0 .. inf; }
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }

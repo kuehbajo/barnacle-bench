@@ -1,0 +1,33 @@
+compiler: "arm-clang";
+
+loop "cjpeg_transupp_do_flip_v.L1" { bound: 3 .. 3; }
+loop "cjpeg_transupp_do_flip_v.L2" { bound: 2 .. 10; }
+loop "cjpeg_transupp_do_flip_v.L3" { bound: 1 .. 8; }
+loop "cjpeg_transupp_do_flip_v.L4" { bound: 15 .. 29; }
+loop "cjpeg_transupp_do_flip_v.L5" { bound: 4 .. 4; }
+loop "cjpeg_transupp_do_flip_v.L6" { bound: 8 .. 8; }
+loop "cjpeg_transupp_do_flip_v.L7" { bound: 8 .. 8; }
+
+loop "cjpeg_transupp_do_rot_90.L1" { bound: 3 .. 3; }
+
+loop "cjpeg_transupp_do_rot_270.L1" { bound: 3 .. 3; }
+
+loop "cjpeg_transupp_do_rot_180.L1" { bound: 3 .. 3; }
+loop "cjpeg_transupp_do_rot_180.L2" { bound: 3 .. 10; }
+loop "cjpeg_transupp_do_rot_180.L3" { bound: 1 .. 8; }
+# if
+loop "cjpeg_transupp_do_rot_180.L4" { bound: 14 .. 28; }
+loop "cjpeg_transupp_do_rot_180.L5" { bound: 4 .. 4; }
+loop "cjpeg_transupp_do_rot_180.L6" { bound: 4 .. 4; }
+loop "cjpeg_transupp_do_rot_180.L7" { bound: 4 .. 4; }
+loop "cjpeg_transupp_do_rot_180.L8" { bound: 1 .. 1; }
+loop "cjpeg_transupp_do_rot_180.L9" { bound: 4 .. 4; }
+loop "cjpeg_transupp_do_rot_180.L10" { bound: 8 .. 8; }
+loop "cjpeg_transupp_do_rot_180.L11" { bound: 8 .. 8; }
+# else
+loop "cjpeg_transupp_do_rot_180.L12" { bound: 14 .. 14; }
+loop "cjpeg_transupp_do_rot_180.L14" { bound: 1 .. inf; } # aiT warning for max 1 -> use default
+loop "cjpeg_transupp_do_rot_180.L15" { bound: 1 .. 1; }
+
+loop "cjpeg_transupp_do_transverse.L1" { bound: 3 .. 3; }
+loop "cjpeg_transupp_do_transverse.L4" { bound: 5 .. 10; }

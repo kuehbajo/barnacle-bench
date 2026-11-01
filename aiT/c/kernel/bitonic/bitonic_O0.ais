@@ -1,0 +1,8 @@
+compiler: "arm-clang";
+
+loop "bitonic_merge.L1" { bound: 0 .. 16; }
+
+loop "bitonic_main.L1" { bound: 32 .. 32; }
+
+routine "bitonic_sort" { recursion bound: 1 .. 63; }
+routine "bitonic_merge" { recursion bound: 1 .. 31; }

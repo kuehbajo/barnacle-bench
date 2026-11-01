@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "adpcm_enc::adpcm_enc_main.L1" { bound: 0 .. 3; }

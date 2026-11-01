@@ -1,0 +1,4 @@
+compiler: "arm-clang";
+
+loop "fac::fac_main.L1" { bound: 0 .. 6; }
+loop "fac::fac_main.L2" { bound: 0 .. 6; } # recursion turned to loop

@@ -1,0 +1,7 @@
+compiler: "arm-clang";
+
+loop "g723_enc::g723_enc_main.L1" { bound: 0 .. 256; }
+loop "g723_enc::g723_enc_main.L2" { bound: 0 .. 0; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

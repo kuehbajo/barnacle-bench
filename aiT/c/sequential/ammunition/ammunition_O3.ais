@@ -1,0 +1,61 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times + loop peeling + speclialized fast path
+
+loop "ammunition_memcpy.L1" { bound: 0 .. 6; }
+
+loop "ammunition_strcmp.L1" { bound: 0 .. 2; }
+
+loop "ammunition_atoi.L1" { bound: 0 .. 2; }
+
+loop "ammunition_sprintf_d.L1" { bound: 0 .. 2; }
+loop "ammunition_sprintf_d.L2" { bound: 0 .. 2; }
+
+loop "ammunition_sprintf_u.L1" { bound: 0 .. 2; }
+loop "ammunition_sprintf_u.L2" { bound: 0 .. 2; }
+
+loop "ammunition_multiply_unsigned_integer.L1" { bound: 0 .. 4; }
+loop "ammunition_multiply_unsigned_integer.L2" { bound: 0 .. 1; }
+loop "ammunition_multiply_unsigned_integer.L3" { bound: 0 .. 1; }
+
+loop "ammunition_multiply_integer.L1" { bound: 0 .. 4; }
+loop "ammunition_multiply_integer.L2" { bound: 0 .. 1; }
+loop "ammunition_multiply_integer.L3" { bound: 0 .. 1; }
+loop "ammunition_multiply_integer.L6" { bound: 0 .. 1; }
+
+loop "ammunition_divide_unsigned_integer_without_overflow_reaction.L6" { bound: 0 .. 0; }
+
+loop "ammunition_unsigned_integer_remainder.L1" { bound: 0 .. 4; }
+loop "ammunition_unsigned_integer_remainder.L2" { bound: 0 .. 1; }
+loop "ammunition_unsigned_integer_remainder.L3" { bound: 0 .. 1; }
+loop "ammunition_unsigned_integer_remainder.L4" { bound: 0 .. 1; }
+
+loop "ammunition_unsigned_integer_to_string.L1" { bound: 0 .. 10; }
+loop "ammunition_unsigned_integer_to_string.L2" { bound: 0 .. 1; }
+loop "ammunition_unsigned_integer_to_string.L3" { bound: 0 .. 1; }
+
+loop "ammunition_integer_to_based_string.L1" { bound: 0 .. 10; }
+loop "ammunition_integer_to_based_string.L2" { bound: 0 .. 1; }
+loop "ammunition_integer_to_based_string.L3" { bound: 0 .. 1; }
+loop "ammunition_integer_to_based_string.L5" { bound: 0 .. 10; }
+loop "ammunition_integer_to_based_string.L6" { bound: 0 .. 1; }
+loop "ammunition_integer_to_based_string.L7" { bound: 0 .. 1; }
+
+loop "ammunition_string_to_unsigned_integer_without_overflow_reaction.L1" { bound: 0 .. 10; }
+
+loop "ammunition_unsigned_integer_from_string.L1" { bound: 0 .. inf; } # max 0 makes problem infeasible
+
+loop "ammunition_integer_from_string.L1" { bound: 0 .. inf; } # max 0 makes problem infeasible
+
+loop "ammunition_bit_string_copy.L3" { bound: 0 .. 7; }
+
+loop "ammunition_reverse_bit_string_copy.L4" { bound: 0 .. 7; }
+
+loop "ammunition_bit_string_comparison.L4" { bound: 0 .. 7; }
+
+# for the compiler builtins default bounds are used
+loop "__aeabi_memset.L4" { bound: 0 .. inf; }
+
+# should not recur
+routine "ammunition_unsigned_integer_shift_right" { recursion bound: 0 .. 1; }
+routine "ammunition_integer_shift_right" { recursion bound: 0 .. 1; }

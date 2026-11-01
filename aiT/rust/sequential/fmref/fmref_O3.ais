@@ -1,0 +1,15 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x times
+
+loop "fmref::fmref_main.L1" { bound: 0 .. 50; } # fmref_get_floats -> looks 4x unrolled
+loop "fmref::fmref_main.L3" { bound: 0 .. 50; } # fmref_get_floats -> looks 4x unrolled
+loop "fmref::fmref_main.L4" { bound: 0 .. 2; }
+loop "fmref::fmref_main.L5" { bound: 0 .. 50; } # fmref_get_floats -> looks 4x unrolled
+
+loop "compiler_builtins::mem::memmove.L2" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L6" { bound: 0 .. inf; }
+loop "compiler_builtins::mem::memmove.L8" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

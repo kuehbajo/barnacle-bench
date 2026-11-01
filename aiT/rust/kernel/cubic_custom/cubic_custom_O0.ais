@@ -1,0 +1,12 @@
+compiler: "arm-clang";
+
+loop "cubic_custom::cubic_main.L1" { bound: 5 .. 5; }
+loop "cubic_custom::cubic_main.L2" { bound: 5 .. 5; }
+loop "cubic_custom::cubic_main.L3" { bound: 7 .. 7; }
+loop "cubic_custom::cubic_main.L4" { bound: 5 .. 5; }
+
+# specified bound min 0 max 0 contradicts aiT -> default value
+loop "cubic_custom::math::sqrtf.L1" { bound: 0 .. inf; }
+
+# code should not panic and as such there should be no need for unwinding
+loop "__rustc::rust_begin_unwind.L1" infeasible;

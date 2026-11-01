@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "isqrt_main.L1" { bound: 1000 .. 1000; }

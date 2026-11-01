@@ -1,0 +1,7 @@
+compiler: "arm-clang";
+
+# suspect loop unrolling 4x + remainder peeling
+
+loop "cjpeg_wrbmp_write_colormap.L3" { bound: 0 .. 64; }
+loop "cjpeg_wrbmp_write_colormap.L4" { bound: 0 .. 64; }
+loop "cjpeg_wrbmp_write_colormap.L5" { bound: 0 .. 128; }

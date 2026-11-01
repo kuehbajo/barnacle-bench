@@ -1,0 +1,3 @@
+compiler: "arm-clang";
+
+loop "insertsort_main.L2" { bound: 0 .. 9; }

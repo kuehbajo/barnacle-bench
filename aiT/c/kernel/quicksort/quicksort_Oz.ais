@@ -1,0 +1,5 @@
+compiler: "arm-clang";
+
+# analysis couldn't be completed
+# -> "Analysis start is infeasible"
+# -> function outlining or through optimization removed return as reasons
