@@ -1,0 +1,286 @@
+# Author: kuehbajo
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”),
+# to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+# OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+# OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+KERNEL_BENCHMARKS := \
+	binarysearch \
+	bitcount \
+	bitonic \
+	bsort \
+	complex_updates \
+	cosf \
+	countnegative \
+	cubic \
+	deg2rad \
+	fac \
+	fft \
+	filterbank \
+	fir2dim \
+	iir \
+	insertsort \
+	isqrt \
+	jfdctint \
+	lms \
+	ludcmp \
+	matrix1 \
+	md5 \
+	minver \
+	pm \
+	prime \
+	quicksort \
+	rad2deg \
+	recursion \
+	sha \
+	st
+	
+SEQUENTIAL_BENCHMARKS := \
+	adpcm_dec \
+	adpcm_enc \
+	ammunition \
+	anagram \
+	audiobeam \
+	cjpeg_transupp \
+	cjpeg_wrbmp \
+	dijkstra \
+	epic \
+	fmref \
+	g723_enc \
+	gsm_dec \
+	gsm_enc \
+	h264_dec \
+	huff_dec \
+	huff_enc \
+	mpeg2 \
+	ndes \
+	petrinet \
+	rijndael_dec \
+	rijndael_enc \
+	statemate \
+	susan
+	
+PARALLEL_BENCHMARKS := \
+	DEBIE \
+	PapaBench \
+	rosace
+	
+APP_BENCHMARKS := \
+	lift \
+	powerwindow	
+	
+TEST_BENCHMARKS := \
+	cover \
+	duff \
+	test3
+
+# starts at benchmark num
+# e.g. 0: not set 1: binarysearch
+START_NUM = 0
+
+# kernel sequential parallel app test
+BENCHMARK_ACT := 0 1 0 0 0
+
+ifeq ($(word 1,$(BENCHMARK_ACT)),1)
+BENCHMARKS += $(KERNEL_BENCHMARKS)
+endif
+ifeq ($(word 2,$(BENCHMARK_ACT)),1)
+BENCHMARKS += $(SEQUENTIAL_BENCHMARKS)
+endif
+ifeq ($(word 3,$(BENCHMARK_ACT)),1)
+BENCHMARKS += $(PARALLEL_BENCHMARKS)
+endif
+ifeq ($(word 4,$(BENCHMARK_ACT)),1)
+BENCHMARKS += $(APP_BENCHMARKS)
+endif
+ifeq ($(word 5,$(BENCHMARK_ACT)),1)
+BENCHMARKS += $(TEST_BENCHMARKS)
+endif
+
+ifneq ($(START_NUM),0)
+BENCHMARKS := $(wordlist $(START_NUM),$(words $(BENCHMARKS)),$(BENCHMARKS))
+endif
+
+ifeq ($(OPT_PARAM),0)
+OPT := O0
+else ifeq ($(OPT_PARAM),1)
+OPT := O1
+else ifeq ($(OPT_PARAM),2)
+OPT := O2
+else ifeq ($(OPT_PARAM),3)
+OPT := O3
+else ifeq ($(OPT_PARAM),g)
+OPT := Og
+else ifeq ($(OPT_PARAM),s)
+OPT := Os
+else ifeq ($(OPT_PARAM),z)
+# Oz only works when compiling with Clang
+OPT := Oz
+else
+OPT := O2
+endif
+BUILD_DIR_ROOT = build
+BUILD_DIR = $(BUILD_DIR_ROOT)/$(OPT)
+TARGET_BUILD_DIR = $(BUILD_DIR)/$(TARGET)
+TARGET_BUILD_DIR := $(patsubst %/,%,$(TARGET_BUILD_DIR))
+
+COMMON := ../common
+COMMON_LIB = $(COMMON)/build/$(OPT)/libxmc-startup.a
+
+DEBUG := 1
+LOG := 1
+LOG_FILE := log.txt
+# 0: GCC 1: Clang
+COMPILER := 1
+
+ifeq ($(COMPILER),0)
+# GCC toolchain
+PREFIX := arm-none-eabi-
+CC := $(PREFIX)gcc
+LD := $(PREFIX)gcc
+CP := $(PREFIX)objcopy
+SZ := $(PREFIX)size
+else
+CC := clang
+LD := arm-none-eabi-gcc
+CP := llvm-objcopy
+SZ := llvm-size
+endif
+
+DEVICE = XMC4500_F100x1024
+MCU := -mcpu=cortex-m4 -mthumb -D__FPU_PRESENT -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+
+INCLUDES = \
+	-I./rtt \
+	-I$(COMMON)/Include/CMSIS \
+	-I$(COMMON)/Include/Measurement \
+	-I$(COMMON)/Include/XMCLib
+
+CFLAGS = $(MCU) -std=c17 -D$(DEVICE) -DUC_ID=4501 $(INCLUDES) -$(OPT) -Wall -fdata-sections -ffunction-sections -Wno-unknown-pragmas
+ifeq ($(DEBUG),1)
+CFLAGS += -g3 -gdwarf-2
+endif
+ifeq ($(LOG),1)
+CFLAGS += -DLOG
+endif
+
+LDSCRIPT := $(COMMON)/linker_script.ld
+LIBDIR := -L$(COMMON)/build/O0
+ifeq ($(COMPILER),1)
+#LIBDIR += -L$(shell dirname `arm-none-eabi-gcc -print-libgcc-file-name`)
+endif
+LIBS := -lc -lm -lgcc -lxmc-startup
+ifeq ($(COMPILER),0)
+LIBS += -lnosys -lrdimon
+else
+PICO_ROOT = /usr/lib/picolibc/arm-none-eabi
+CFLAGS += -I$(PICO_ROOT)/include
+LIBDIR += -L$(PICO_ROOT)/lib
+LIBS += -lnosys -lrdimon
+endif
+# -nostdlib ??
+#LDFLAGS = $(MCU) -$(OPT) -T$(LDSCRIPT) $(LIBDIR) $(LIBS)
+LDFLAGS = $(MCU) -$(OPT) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(TARGET_BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+
+
+
+#GCC_TOOLCHAIN := $(shell dirname $(shell dirname $(shell which arm-none-eabi-gcc)))
+
+
+
+ifeq ($(COMPILER),0)
+LDFLAGS += --specs=nosys.specs --specs=nano.specs
+endif
+ifeq ($(COMPILER),1)
+LLVM := thumbv7em-none-eabi
+TARGET_TRIPLE_FLAG := --target=$(LLVM)
+CFLAGS += $(TARGET_TRIPLE_FLAG) -fshort-enums -Wa,--noexecstack
+#CFLAGS += $(TARGET_TRIPLE_FLAG) --gcc-toolchain=$(GCC_TOOLCHAIN) -fshort-enums -fno-integrated-as -Wa,--noexecstack
+LDFLAGS += --specs=nosys.specs --specs=nano.specs
+#LDFLAGS += $(TARGET_TRIPLE_FLAG) --gcc-toolchain=$(GCC_TOOLCHAIN)# --specs=nosys.specs --specs=nano.specs
+#LDFLAGS += $(TARGET_TRIPLE_FLAG) -fuse-ld=lld
+endif
+
+ifeq ($(COMPILER),0)
+ASFLAGS = -Wa,-a,-ad,-alms=$(TARGET_BUILD_DIR)/$(notdir $(<:.c=.lst))
+else
+ASFLAGS :=
+endif
+
+APP_SOURCES = $(wildcard src/$(CLASS)/$(TARGET)/*.c)
+APP_OBJECTS = $(APP_SOURCES:src/$(CLASS)/$(TARGET)/%.c=$(TARGET_BUILD_DIR)/%.o)
+
+RTT_SOURCES = rtt/SEGGER_RTT.c rtt/SEGGER_RTT_printf.c
+RTT_OBJECTS = $(RTT_SOURCES:rtt/%.c=$(TARGET_BUILD_DIR)/%.o)
+
+OBJECTS = $(APP_OBJECTS) 
+ifeq ($(LOG),1)
+OBJECTS += $(RTT_OBJECTS)
+endif
+
+OPT_LEVELS = 0 1 2 3 g s z
+
+all: O0 O1 O2 O3 Og Os Oz
+
+O%:
+	@$(MAKE) OPT_PARAM=$* $(BENCHMARKS)
+Odefault: 
+	@$(MAKE) OPT_PARAM=default $(BENCHMARKS)
+
+$(KERNEL_BENCHMARKS):
+	@$(MAKE) CLASS="kernel" TARGET="$@" "$(BUILD_DIR)/$@.elf"
+	
+$(SEQUENTIAL_BENCHMARKS):
+	@$(MAKE) CLASS="sequential" TARGET="$@" "$(BUILD_DIR)/$@.elf"
+	
+$(PARALLEL_BENCHMARKS):
+	@$(MAKE) CLASS="parallel" TARGET="$@" "$(BUILD_DIR)/$@.elf"
+
+$(APP_BENCHMARKS):
+	@$(MAKE) CLASS="app" TARGET="$@" "$(BUILD_DIR)/$@.elf"
+	
+$(TEST_BENCHMARKS):
+	@$(MAKE) CLASS="test" TARGET="$@" "$(BUILD_DIR)/$@.elf"
+
+$(BUILD_DIR)/%.elf: $(OBJECTS) $(COMMON_LIB)
+	arm-none-eabi-gcc $(LDFLAGS) $(OBJECTS) $(COMMON_LIB) -o "$@"
+	$(SZ) "$@"
+#arm-none-eabi-gcc $(LDFLAGS) $(OBJECTS) $(COMMON_LIB) -o "$@"
+#	$(CC) $(LDFLAGS) $(OBJECTS) $(COMMON_LIB) -o "$@"
+
+# APP sources
+$(TARGET_BUILD_DIR)/%.o: src/$(CLASS)/$(TARGET)/%.c
+	mkdir -p $(dir $@)
+	$(CC) -g -c $(CFLAGS) $(ASFLAGS) $< -o $@
+	
+# RTT sources
+$(TARGET_BUILD_DIR)/%.o: rtt/%.c
+	mkdir -p $(dir $@)
+	$(CC) -g -c $(CFLAGS) $(ASFLAGS) $< -o $@
+
+# Common Static Library
+$(COMMON_LIB):
+	@echo "Building common lib with OPT_PARAM=$(OPT_PARAM)"
+	@$(MAKE) -C $(COMMON) OPT_PARAM=$(OPT_PARAM) CC=$(CC) DEVICE=$(DEVICE)
+
+$(foreach bench,$(BENCHMARKS),jrun_$(bench)): jrun_%: %
+	JRun -d XMC4500-1024 --rtt -s "$(BUILD_DIR)/$<.elf" | tee -a "$(LOG_FILE)"
+	
+jrun_O%:
+	@$(MAKE) OPT_PARAM=$* $(foreach bench,$(BENCHMARKS),jrun_$(bench))
+
+jrun: jrun_O0 jrun_O1 jrun_O2 jrun_O3 jrun_Og jrun_Os
+
+.PHONY: clean
+clean:
+	rm -rf $(BUILD_DIR_ROOT)/
+	$(MAKE) -C $(COMMON) clean
+	
+print-%  : ; @echo $* = $($*)
